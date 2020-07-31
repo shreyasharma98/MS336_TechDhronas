@@ -1,7 +1,7 @@
 # MS336_Shreya_TechDhronas
 Team TechDhronas for Smart India Hackathon 2020
 
-## Team Member
+## Team Members
 Bhakti Raj Gupta - VR Developer<br>
 Shreya Sharma - Machine Learning Dev.<br>
 Prashant Verma - Backend Developer<br>
