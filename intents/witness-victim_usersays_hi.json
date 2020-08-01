@@ -1,0 +1,32 @@
+[
+  {
+    "id": "4acdf321-af0f-46ca-b851-4f4f4fe47468",
+    "data": [
+      {
+        "text": "पीड़ित",
+        "meta": "@text",
+        "alias": "text",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "hi",
+    "updated": 0
+  },
+  {
+    "id": "445181ec-3d1c-4e04-af8a-8685b7aeb299",
+    "data": [
+      {
+        "text": "गवाह",
+        "meta": "@text",
+        "alias": "text",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "hi",
+    "updated": 0
+  }
+]
