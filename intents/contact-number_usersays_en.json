@@ -1,0 +1,131 @@
+[
+  {
+    "id": "0fb9e5d9-26e3-42fa-a4a9-11ac6c7a56c9",
+    "data": [
+      {
+        "text": "my no is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7e674fe9-b187-4c26-ba19-bf865b69e7d5",
+    "data": [
+      {
+        "text": "my number is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "affb4138-76d4-49e1-a783-3090e888ca7a",
+    "data": [
+      {
+        "text": "my contact no is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "61b08a10-9762-4372-91d1-ccba8e136274",
+    "data": [
+      {
+        "text": "my phone no is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "854312f9-6780-494d-98dd-3b87a55b54ce",
+    "data": [
+      {
+        "text": "my contact number is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9551e27e-447f-4a8f-abc1-e3b8acce25db",
+    "data": [
+      {
+        "text": "my phone number is ",
+        "userDefined": false
+      },
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f157c6d7-f98f-415c-9d18-ae733247ae61",
+    "data": [
+      {
+        "text": "9896328190",
+        "meta": "@sys.phone-number",
+        "alias": "phone-number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

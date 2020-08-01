@@ -1,0 +1,17 @@
+[
+  {
+    "id": "f7d18e29-06a7-4f74-8c96-eb743987cc53",
+    "data": [
+      {
+        "text": "@sys.any",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

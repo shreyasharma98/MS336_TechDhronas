@@ -1,0 +1,14 @@
+[
+  {
+    "value": "@sys.given-name:given-name",
+    "synonyms": [
+      "@sys.given-name:given-name"
+    ]
+  },
+  {
+    "value": "name:given",
+    "synonyms": [
+      "name:given"
+    ]
+  }
+]

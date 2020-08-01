@@ -1,0 +1,112 @@
+[
+  {
+    "id": "a281d159-8631-4b02-872b-79b03fac5896",
+    "data": [
+      {
+        "text": "email is ",
+        "userDefined": false
+      },
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b8ad1e66-aefc-4112-96e2-a3e26fd71dc1",
+    "data": [
+      {
+        "text": "email id is ",
+        "userDefined": false
+      },
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "123e2444-a94f-4a68-b8fb-947f936cbe5a",
+    "data": [
+      {
+        "text": "my email-id is ",
+        "userDefined": false
+      },
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2f3e3fc2-cf66-414b-be05-6ef768358d8e",
+    "data": [
+      {
+        "text": "my email is ",
+        "userDefined": false
+      },
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7050b096-19cc-4bcc-8e8e-f3cce27453fa",
+    "data": [
+      {
+        "text": "my email id is ",
+        "userDefined": false
+      },
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0ca2c1f1-d491-4993-8b96-a169f338925d",
+    "data": [
+      {
+        "text": "nitika@gmail.com",
+        "meta": "@sys.email",
+        "alias": "email",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]
