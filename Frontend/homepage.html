@@ -1,0 +1,171 @@
+{% extends 'base1.html' %} 
+{% load staticfiles %} 
+{% block linkstyling %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}"> {% endblock %} 
+{% block username %} {{who}} {% endblock %} {% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+    <div class="container" style="color: #B51714 !important;">
+        <ul class="nav justify-content-start">
+            <li class="nav-item" style="margin-left: -12px;">
+                <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+            </li>
+            <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                <a style="color:#B51714 !important;" href="#" class="nav-link">WELCOME TO VCOP</a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-end ml-auto">
+            <!-- <li class="nav-item "><a href="/crimefiles/" style="color:#B51714 !important;" class="nav-link">GO BACK</a></li> -->
+            <li class="nav-item "><a href="/accounts/logout" style="color:#B51714 !important;" class="nav-link">LOGOUT</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %} {% block complaint_details %}
+<div class="container box">
+    <a class="link btn btn-success" href="complaint_list">GO TO DASHBOARD</a>
+    <a class="link btn btn-success" href="/crimefiles/createcomplaintnew">REGISTER COMPLAINT</a>
+</div>
+
+<div class="container">
+    <div style="text-align: center;background: #f7f7f9; width:700px; padding-top:30px;padding-bottom:20px;border-radius:50px;">
+        <h3>CRIMES AGAINST WOMEN</h3>
+        <p><a href="analytics/overyears"> Click here for Analysis over the years</a></p>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">With respect to every State</button>
+        <div id="demo" class="collapse">
+            <br> <a href="analytics/chart2001"> 2001 </a>
+            <br> <a href="analytics/chart2002"> 2002 </a>
+            <br> <a href="analytics/chart2003"> 2003 </a>
+            <br> <a href="analytics/chart2004"> 2004 </a>
+            <br> <a href="analytics/chart2005"> 2005 </a>
+            <br> <a href="analytics/chart2006"> 2006 </a>
+            <br> <a href="analytics/chart2007"> 2007 </a>
+            <br> <a href="analytics/chart2008"> 2008 </a>
+            <br> <a href="analytics/chart2009"> 2009 </a>
+            <br> <a href="analytics/chart2010"> 2010 </a>
+            <br>
+        </div>
+        <br><br>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">With respect to victims Age</button>
+        <div id="demo1" class="collapse">
+            <br> <a href="analytics/pie2001"> 2001 </a>
+            <br> <a href="analytics/pie2002"> 2002 </a>
+            <br> <a href="analytics/pie2003"> 2003 </a>
+            <br> <a href="analytics/pie2004"> 2004 </a>
+            <br> <a href="analytics/pie2005"> 2005 </a>
+            <br> <a href="analytics/pie2006"> 2006 </a>
+            <br> <a href="analytics/pie2007"> 2007 </a>
+            <br> <a href="analytics/pie2008"> 2008 </a>
+            <br> <a href="analytics/pie2009"> 2009 </a>
+            <br> <a href="analytics/pie2010"> 2010 </a>
+            <br>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+
+<div class="container">
+    <div style="text-align: center; margin-top:20px;margin-left:200px;background:#f7f7f9; width:700px; padding-top:30px;padding-bottom:40px;border-radius:50px;">
+        <h2>MURDERS</h2>
+        <p><a href="analytics/murders"> Click here for Analysis over the years</a></p>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#dem">With respect to each state</button>
+        <div id="dem" class="collapse">
+            <br><a href="analytics/murd2001"> 2001 </a>
+            <br><a href="analytics/murd2002"> 2002 </a>
+            <br><a href="analytics/murd2003"> 2003 </a>
+            <br><a href="analytics/murd2004"> 2004 </a>
+            <br><a href="analytics/murd2005"> 2005 </a>
+            <br><a href="analytics/murd2006"> 2006 </a>
+            <br><a href="analytics/murd2007"> 2007 </a>
+            <br><a href="analytics/murd2008"> 2008 </a>
+            <br><a href="analytics/murd2009"> 2009 </a>
+            <br><a href="analytics/murd2010"> 2010 </a>
+            <br>
+        </div>
+        <br>
+        <br>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#pie">With respect to victims Age</button>
+        <div id="pie" class="collapse">
+            <br><a href="analytics/murdpie2001"> 2001 </a>
+            <br> <a href="analytics/murdpie2002"> 2002 </a>
+            <br> <a href="analytics/murdpie2003"> 2003 </a>
+            <br> <a href="analytics/murdpie2004"> 2004 </a>
+            <br> <a href="analytics/murdpie2005"> 2005 </a>
+            <br> <a href="analytics/murdpie2006"> 2006 </a>
+            <br> <a href="analytics/murdpie2007"> 2007 </a>
+            <br> <a href="analytics/murdpie2008"> 2008 </a>
+            <br> <a href="analytics/murdpie2009"> 2009 </a>
+            <br> <a href="analytics/murdpie2010"> 2010 </a><br>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div style="text-align: center; margin-top:20px;margin-left:200px;background:#f7f7f9; width:700px; padding-top:30px;padding-bottom:40px;border-radius:50px; margin-bottom: 50px;">
+        <h2>SHOOTINGS IN SCHOOLS </h2>
+        <p><a href="analytics/shooting"> Time series plot of the casualities over the years</a></p>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#citi">With respect to cities</button>
+        <div id="citi" class="collapse">
+            <br>
+            <p><a href="analytics/death"> Number of Deaths</a></p>
+            <p><a href="analytics/inj"> Number of Injuries</a></p>
+            <p><a href="analytics/diainj"> Number of Deaths vs Injuries</a></p>
+            <p><a href="analytics/deaandinj"> Number of Deaths + Injuries</a></p>
+        </div>
+        <br><br>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#shoot">With respect to State</button>
+        <div id="shoot" class="collapse">
+            <br>
+            <p><a href="analytics/shot_kil"> Number of Deaths</a></p>
+            <p><a href="analytics/shot_inj"> Number of Injuries</a></p>
+            <p><a href="analytics/injkill"> Number of Deaths vs Injuries</a></p>
+            <p><a href="analytics/fatal"> Number of Deaths + Injuries</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-bottom: 50px;">
+    <div class="row">
+        {% for c in criminals %}
+        <div class="card" style="width: 18rem; margin: 20px;">
+            <img src="/media/{{c.criminal_image}}" class="card-img-top" height="220px">
+            <div class="card-body">
+                <h5 class="card-title" style="font-weight: 800;">
+                    <a href="#">{{ c.criminal_name }}</a></h5>
+                <p class="card-text"></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top:20px;margin-left:200px;background:#f7f7f9; width:700px; padding-top:30px;padding-bottom:30px;border-radius:50px; margin-bottom: 50px;">
+        <h3>Having any Information regarding these Criminals ??</h3>
+        <h6 style="margin-top: -10px !important;">Please Let Us Know!</h6><br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label style=" margin-top: 0px !important; text-align: left !important;margin-left:-150px; margin-bottom: -10px;" for="">SELECT THE CRIMINAL YOU HAVE INFORMATION ABOUT</label>
+            <select style="width: 500px; margin-left: 68px;" class="mt-1 drop form-control" name="name_of_criminal">
+                {% for a in criminals %}
+                    <option>{{ a.criminal_name }}</option>
+                {% endfor %}
+            </select>
+            <label style=" margin-top: 10px !important;margin-bottom: -10px; margin-left: -325px;" for="">WHAT YOU KNOW ABOUT HIM?</label>
+            <br>
+            <textarea name="info" style="width: 500px; margin-left: 68px;" class="form-control" cols="30" rows="3">
+            </textarea>
+            <button style="margin-top: 25px;" type="submit" class="btn btn-success" onclick="myFunction()">SUBMIT</button>
+        </form>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %} {% block scripts %}
+
+<script>
+    function myFunction() {
+        alert("Your Response has been Submitted sucessfully! ThanK You For Helping us. ");
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'base1.html' %} 
+{% load staticfiles %} 
+{% block username %} {{who}} {% endblock %}
+
+{% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+        <div class="container" style="color: #B51714 !important;">
+            <ul class="nav justify-content-start">
+                <li class="nav-item" style="margin-left: -12px;">
+                    <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+                </li>
+                <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                    <a style="color:#B51714 !important;" href="#" class="nav-link">YOUR REGISTERED COMPLAINTS</a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end ml-auto">
+            {% comment %} <li class="nav-item "><a href="/crimefiles/createcomplaintnew" style="color:#B51714 !important;" class="nav-link">NEW COMPLAINT</a></li> {% endcomment %}
+            <li class="nav-item "><a href="/crimefiles/" style="color:#B51714 !important;" class="nav-link">GO BACK</a></li>
+            {% comment %} <li class="nav-item "><a href="/accounts/logout" style="color:#B51714 !important;" class="nav-link">LOGOUT</a></li> {% endcomment %}
+            </ul>
+        </div>
+</nav>
+{% endblock %}
+
+
+
+
+
+{% block complaint_details %}
+<div class="container mt-2">
+    <ul class="list-group">
+        <!--complaint bar start-->
+        {% for object in object_list %} 
+        {% if is_facilitator %} 
+        {% if object.nameoffacilitator == who %}
+        <li class="p-0 m-1 mt-2 list-group-item list-group-item-success list-group-item-action">
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <div class="mt-1 ml-3 mb-0" style="font-size: x-large; font-weight: 700;">
+                            Complaint Number : {{object.complaintid}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Date and Time : {{object.dateofcomplaint}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Complaint Status : {{object.status}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Signed status : {{object.signedstatus}}
+                        </div>
+                        <div class="mt-0 ml-3 mb-2" style="font-size: small;color: black; font-weight: 500;">
+                            Declined Status : {{object.declinedstatus}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 clearfix">
+                    <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
+                                                Track status
+                                            </a> 
+                                            {% if is_facilitator %}
+                                            {% comment %} {% if instance.freport_status == "Facilitator Report Not Added" %} {% endcomment %}
+                    <a href="{{object.get_absolute_url}}fevidences" style="margin-top: 25px;margin-left:35px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                                Add Evidence
+                                            </a> 
+                                            {% endif %}
+
+                    <a href="{{object.get_absolute_url}}" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                                View Complaint
+                                            </a>
+                </div>
+            </div>
+        </li>
+        {% endif %} {% endif %} 
+        {% if is_investigator %} {% if object.nameofinvestigatorassigned == who %}
+        <li class="p-0 m-1 mt-2 list-group-item list-group-item-success">
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <div class="mt-1 ml-3 mb-0" style="font-size: x-large; font-weight: 700;">
+                            Complaint Number : {{object.complaintid}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Date and Time : {{object.dateofcomplaint}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Complaint Status : {{object.status}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Signed status : {{object.signedstatus}}
+                        </div>
+                        <div class="mt-0 ml-3 mb-2" style="font-size: small;color: black; font-weight: 500;">
+                            Declined Status : {{object.declinedstatus}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 clearfix">
+                    {% comment %} <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
+                                                Track status
+                                            </a> {% endcomment %} {% if is_investigator %}
+                    <a href="{{object.get_absolute_url}}i_portal" style=" margin-right:50px;margin-top: 40px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                                VIEW  COMPLAINT
+                                            </a> {% endif %} {% comment %} <a href="{{object.get_absolute_url}}" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                                View Complaint
+                                            </a> {% endcomment %}
+                </div>
+            </div>
+        </li>
+        {% endif %} {% endif %} 
+        {% if not is_facilitator and not is_investigator %}
+        <li class="p-0 m-1 mt-2 list-group-item list-group-item-success">
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <div class="mt-1 ml-3 mb-0" style="font-size: x-large; font-weight: 700;">
+                            Complaint Number : {{object.complaintid}}
+                        </div>
+                        <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            <b>Date and Time</b> : {{object.dateofcomplaint}}
+                        </div>
+                        <div class="mt-0 ml-3 mb-2" style="font-size: small;color: black; font-weight: 500;">
+                           <b> Complaint Status </b>: {{object.status}}
+                        </div>
+                        {% comment %} <div class="mt-0 ml-3" style="font-size: small;color: black; font-weight: 500;">
+                            Signed status : {{object.signedstatus}}
+                        </div>
+                        <div class="mt-0 ml-3 mb-2" style="font-size: small;color: black; font-weight: 500;">
+                            Declined Status : {{object.declinedstatus}}
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+                <div class="col-6 clearfix">
+                    <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
+										TRACK COMPLAINT
+									</a>
+                    <a href="{{object.get_absolute_url}}" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+										COMPLAINT  DETAILS
+									</a>
+                </div>
+            </div>
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
