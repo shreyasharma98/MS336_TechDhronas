@@ -1,9 +1,0 @@
-{
-  "id": "b43785ab-3ca1-472c-8ceb-81b97f6e4376",
-  "name": "year",
-  "isOverridable": true,
-  "isEnum": false,
-  "isRegexp": false,
-  "automatedExpansion": false,
-  "allowFuzzyExtraction": false
-}

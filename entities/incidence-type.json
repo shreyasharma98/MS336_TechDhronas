@@ -1,9 +1,0 @@
-{
-  "id": "3d22c68c-1bec-4b2c-a648-c7c19cc0e7fd",
-  "name": "incidence-type",
-  "isOverridable": true,
-  "isEnum": false,
-  "isRegexp": false,
-  "automatedExpansion": false,
-  "allowFuzzyExtraction": false
-}
