@@ -2,4 +2,4 @@
 Team TechDhronas for Smart India Hackathon 2020
 
 ## Team Members
-<img url="Images/Capture.png" >
+<img src="Images/Capture.png" >
