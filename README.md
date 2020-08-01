@@ -1,4 +1,4 @@
-# MS336_Shreya_TechDhronas
+# MS336_TechDhronas
 Team TechDhronas for Smart India Hackathon 2020
 
 ## Team Members
