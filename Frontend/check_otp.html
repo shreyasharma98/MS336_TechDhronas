@@ -1,0 +1,86 @@
+{% extends 'base1.html' %} 
+{% load staticfiles %}
+{% block username %} {{who}} {% endblock %}
+
+
+{% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+        <div class="container" style="color: #B51714 !important;">
+            <ul class="nav justify-content-start">
+                <li class="nav-item" style="margin-left: -12px;">
+                    <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+                </li>
+                <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                    <a style="color:#B51714 !important;" href="#" class="nav-link">AADHAR VERIFICATION</a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end ml-auto">
+            {% comment %} <li class="nav-item "><a href="/crimefiles/createcomplaintnew" style="color:#B51714 !important;" class="nav-link">NEW COMPLAINT</a></li> {% endcomment %}
+            {% comment %} <li class="nav-item "><a href="/accounts/logout" style="color:#B51714 !important;" class="nav-link">LOGOUT</a></li> {% endcomment %}
+            </ul>
+        </div>
+</nav>
+{% endblock %}
+
+{% block styling %}
+        .imagg
+        {
+        float:right;
+        height:520px;
+        width:520px;
+        margin-top:50px;
+        }
+        .pp
+        {
+         font-family: Impact;
+        color:white;
+        }
+        .b {
+        
+          font-family: Bahnschrift Light;
+        color:black;
+        }
+        .p
+        {
+        margin-top:50px;
+        margin-left:212px;
+        }
+        .s
+        {
+        background-color:rgba(225,225,225,0.4);
+        }
+        .msg
+        {
+        color: red;
+        font-size: 15px;
+        font-family:  Bahnschrift Light;
+        }
+        #aadhar{
+            width:500px;
+        }
+{% endblock %}
+
+
+
+    {% block complaint_details %}
+    <div class="container p" style="margin-top:50px;margin-left:420px;background:#f7f7f9; width:700px; padding-top:50px; padding-left:60px;padding-right:60px; padding-bottom:50px;border-radius:50px;">
+        {% comment %} <h2 class="pp">Aadhaar Paperless Verification</h2> {% endcomment %}
+        {% comment %} <h3 class="b">Aadhaar Paperless Verification </br>is a secure and shareable document which can be</br> used by any Aadhaar holder for verification of identification</h3>
+        </br>
+        <h4 class="b">After entering Aadhaar the OTP will be sent to the linked mobile number</h4>
+        </br> {% endcomment %}
+        <h5 class="b" style="color:darkblue; font-weight:600">Please Enter OTP Send On The Number : </h4>
+           <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="aadharNo">Enter the OTP</label>
+                <input type="text" class="form-control" id="otp" name="otp" aria-describedby="otp">
+                <small id="" class="form-text text-muted">Never share your OTP with anyone. </small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+    {% endblock %}
+
+

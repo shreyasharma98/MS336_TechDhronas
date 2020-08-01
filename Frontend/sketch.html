@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Sketch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="text">
+        <div class="row fixed">
+            <div class="mt-2 pt-1 col-8 text" style="margin-left: 250px;">
+                <spam>Please create criminal sketch and then click save button, otherwise skip this Step.</spam>
+            </div>
+            <div class="col-2 mt-2 mb-2" style="margin-left: -200px;">
+                <a href="{{object.get_absolute_url}}save_sketch" class=" btn btn-success">Save Sketch</a>
+            </div>
+            <div class="col-2 mt-2 mb-2" style="margin-left:-120px;">
+                <a href="{{object.get_absolute_url}}skip_sketch" class=" btn btn-success">Skip Step</a>
+            </div>
+        </div>
+    </div>
+    <div class="frame">
+        <iframe class="ml-0 mr-0 mt-0" src="http://facemaker.uvrg.org/" width="1535px" height="650"></iframe>
+    </div>
+</body>
+
+</html>
