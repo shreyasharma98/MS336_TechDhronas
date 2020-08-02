@@ -1,0 +1,86 @@
+{%load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+<!--hey-->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+    <title>Login Signup Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>LOG IN</h3>
+                    <div class="d-flex justify-content-end social_icon">
+                        <span><i class="fab fa-facebook-square " id="fb"></i></span>
+                        <span><i class="fab fa-google-plus-square" id="gg" ></i></span>
+                        <span><i class="fab fa-twitter-square" id="tw"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="user">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-user"></i>
+                                      <label for="username"> Username</label>
+                                    </span>
+                                </div>
+                                {{ form.username }}
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="fas fa-key"></i>
+                                      <label for="username">Password</label>
+                                    </span>
+                                </div>
+                                {{ form.password }}
+                            </div>
+                        </div>
+                        <div class="mt-2 row align-items-center remember">
+                            <input type="checkbox" required><small>Agree Our Terms & Conditions</small>
+                        </div>
+
+                        <input type="submit" class="log-btn" value="login" />
+                        <input type="hidden" name="next" value="/crimefiles/" />
+                    </form>
+                </div>
+                <div class="mt-2 mb-2 card-footer">
+                    <div class="d-flex justify-content-center">
+                        <span class="links"> Don't have an account?</span>
+                        <a class="register" href="/accounts/register">REGISTER</a>
+                    </div>
+                    <!-- <div class="d-flex justify-content-center">
+                        <a href="#">Forgot your password?</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/fbf6796863.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

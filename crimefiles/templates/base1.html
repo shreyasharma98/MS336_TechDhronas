@@ -1,0 +1,160 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-translate-customization" content="9f841e7780177523-3214ceb76f765f38-gc38c6fe6f9d06436-c"></meta>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>V-COP DASHBOARD</title>
+    <!-- <link rel="stylesheet" href="CSS/style.css" type="text/css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> {% block linkstyling %}{% endblock %}
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        a {
+            text-decoration: none !important;
+            /* color: #B51714 !important; */
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        {
+            % block styling %
+        }
+        
+        {
+            % endblock %
+        }
+    </style>
+    <script>{% block js %}{% endblock %}</script>
+</head>
+
+<body>
+    <!-- Top Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #E5E7F3;">
+        <div class="container">
+            <ul class="nav justify-content-start">
+                <li class="nav-item">
+                    <a class="navbar-brand font-weight-bold ml-2 mt-1 p-0 mr-2 mb-2" href="#">
+                        <img src="{% static 'images/flag-400.png'%}" width="42" height="28" alt="india logo" class=" m-0 india-logo">
+                    </a>
+                </li>
+                <li class=" nav-item" style="margin-top: 10px; font-weight: 600; font-size: 17px;">
+                    <a class="nav-text">INDIA</a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end ml-auto">
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Option1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Option2</a>
+                </li> -->
+                <li class="nav-item">
+                    <div id="google_translate_element"></div>
+                </li><!-- 
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Option4</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+    <!--Top nav bar end-->
+
+    <!-- logo bar -->
+    <nav class="navbar navbar-expand-lg navbar-light p-0 bg-white">
+        <div class="container">
+            <a class="navbar-brand m-0" href="#">
+                <img src="{% static 'images/logo.png' %}" alt="logo" height="110" width="90">
+            </a>
+            <div class="ml-3 nav-item justify-content-start" style="font-weight:900">
+                <strong style="font-size:24px; text-align:center;"> GOVERNMENT OF <br> MADHYA PRADESH</strong><br>
+                <strong>Your virtual Police buddy</strong>
+            </div>
+            <ul class="nav justify-content-end ml-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Option1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Option2</a>
+                </li> -->
+                <li class="nav-item" style="margin-top: -15px; margin-right: -20px;">
+                    <a class="nav-link" href="#"><img src="https://img.icons8.com/ios/50/000000/user-male-circle.png" /></a>
+                </li>
+                <li class="nav-item" style="color: black !important;">
+                    <a style="color: black !important;" class="nav-link" href="#">{% block username %} {% endblock %}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- logo bar -->
+
+    {% block yellow %}{% endblock%}
+
+    <!-- Options bar 
+    <nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+        <div class="container" style="color: #B51714 !important;">
+            <ul class="nav justify-content-start">
+                <li class="nav-item" style="margin-left: -12px;">
+                    <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+                </li>
+                <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                    <a style="color:#B51714 !important;" href="#" class="nav-link">{% block heading_name %}{% endblock %}</a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end ml-auto">
+                <li class="nav-item ">
+                <a style="color:#B51714 !important;" class="nav-link" href="#">Option1</a> 
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Options bar -->
+
+
+    <!-- Instruction Section -->
+
+    {% block complaint_details %}{% endblock %}
+
+    <!-- Instruction Section -->
+
+    {% block scripts %}{% endblock %}
+    <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+    </script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

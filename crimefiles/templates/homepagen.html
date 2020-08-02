@@ -1,0 +1,273 @@
+{% extends 'base1.html' %} {% load staticfiles %} {% block linkstyling %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepagen.css' %}"> {% endblock %} {% block username %} {{who}} {% endblock %} {% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+    <div class="container" style="color: #B51714 !important;">
+        <ul class="nav justify-content-start">
+            <li class="nav-item" style="margin-left: -12px;">
+                <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+            </li>
+            <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                <a style="color:#B51714 !important;" href="#" class="nav-link">WELCOME TO VCOP</a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-end ml-auto">
+            <!-- <li class="nav-item "><a href="/crimefiles/" style="color:#B51714 !important;" class="nav-link">GO BACK</a></li> -->
+<!--             <li class="nav-item "><a href="nextstep" style="color:#B51714 !important;" class="nav-link">Verification</a></li>
+ -->
+            <li class="nav-item "><a href="/accounts/logout" style="color:#B51714 !important;" class="nav-link">LOGOUT</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %} {% block complaint_details %}
+
+<script>
+    $(document).ready(function() {
+        $('.pulse-button').click(function() {
+            $('.flip-card4').toggle("slide");
+        });
+    });
+</script>
+
+
+<div class="homecontent ext-lnks" style="float:left;">
+    <div class="basic">
+        <a class="closeme" title="Close"></a>
+        <div class="fram-hldr" style="width: 250px;background: linear-gradient(150deg,#5b247a,#57ca85,#1bcedf 100%);font-size: 25px; position: relative; font-weight: 400; color: white; padding: 10px;">
+            <p class="solid" style="border:3px solid white !important;text-align: center !important;color: white; font-weight: 900; text-shadow:2px 1px 2px red;">WANTED</p>
+            <marquee direction="down" onmouseover="stop();" onmouseout="start();" scrollamount="4" behavior="scroll" style="height:auto;min-height: 1078px;  width: 100%; margin-left:25px; ">
+                {% for c in criminals %}
+                <img src="/media/{{c.criminal_image}}" width="170 " height="160 "><br><br/> {% endfor %}
+                <script async=" " src="https://platform.twitter.com/widgets.js " charset="utf-8 "></script>
+            </marquee>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<div class="flip-card1 " style="float:left; ">
+    <div class="flip-card-inner1 ">
+        <div class="flip-card-front1 " style="background: linear-gradient(150deg,#fad961,#f76b1c 100%); ">
+            <div style="font-family: Roboto;">
+                <br><br><br><br>
+                <h2>Let's Go To</h2>
+                <h2>Dashboard</h2>
+                <!-- <span style="text-align: center !important; font-size:35px; color:black; font-family: Arial, Helvetica, sans-serif; font-weight: 600; text-shadow:2px 1px 2px #fad961;">GO TO DASHBOARD</span> -->
+            </div>
+        </div>
+        <div class="flip-card-back1 " style="font-family: Roboto;">
+            <br><br><br><br>
+            <h2>Dashboard</h2>
+            <a href="complaint_list">
+                <p>Click Here to jump on Dashboard</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card1 " style="float:left; ">
+    <div class="flip-card-inner1 ">
+        <div class="flip-card-front1 " style="background:  linear-gradient(150deg,#c3ec52,#0ba29d 100%); ">
+            <div style="font-family: Roboto;">
+                <br><br><br><br>
+                <h2>Register</h2>
+                <h2>FIR</h2>
+                <!-- <span style="text-align: center !important; font-size:35px; color:black; font-family: Arial, Helvetica, sans-serif; font-weight: 600; text-shadow:2px 1px 2px #fad961;">GO TO DASHBOARD</span> -->
+            </div>
+        </div>
+        <div class="flip-card-back1 " style="font-family: Roboto;">
+            <br><br><br><br>
+            <h2>REGISTER FIR</h2>
+            <a href="/crimefiles/createcomplaintnew">
+                <p>Click Here to register<br> your FIR</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="sticky-container ">
+    <ul class="sticky ">
+        <li>
+            <img src="{% static 'images/facebook.png' %}" width="32 " height="32 ">
+            <p><a href="#" target="_blank ">Like Us on<br>Facebook</a></p>
+        </li>
+        <li>
+            <img src="{% static 'images/twiteer.png' %} " width="32 " height="32 ">
+            <p><a href="#" target="_blank ">Follow Us on<br>Twitter</a></p>
+        </li>
+
+        <li>
+            <img src="{% static 'images/link.png' %} " width="32 " height="32 ">
+            <p><a href="#" target="_blank ">Follow Us on<br>LinkedIn</a></p>
+        </li>
+        <li>
+            <img src="{% static 'images/you.png' %} " width="32 " height="32 ">
+            <p><a href="#" target="_blank ">Subscribe on<br>YouYube</a></p>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<div class="flip-card4 " style="float:left;display:none; position:fixed; top:0; right:0; left:20; ">
+    <div class="flip-card-inner4 ">
+        <div class="flip-card-front4 " style="background: linear-gradient(150deg,#F5515F,#A1051D 100%); ">
+        </div>
+        <div class="flip-card-back4 ">
+            <img src="{% static 'images/faa2.png' %}" width="70 " height="70 " alt="india logo " style="margin-left:15px;margin-top:10px;float:left; ">
+            <h4 style="float:left;margin-top:30px;color:white; ">&nbsp;&nbsp;Hi there👋</h4><br><br><br>
+            <p style="font-size:12px;color:white; ">&nbsp;&nbsp;&nbsp;&nbsp;I'm your personal Emergency Assistant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and
+                I am here to help you</p>
+        </div>
+        <br><br><br><br><br>
+        <div class="card ">
+            <div style="width:200px;height:300px; ">
+                <table>
+                    <tr>
+                        <td> <img src="{% static 'images/location.png' %} " width="70 " height="70 " alt="india logo "></td>
+                        <td style="font-size:12px; "><a href="locationp" onclick="alert('Your Current Location has been send to the Nearest Police station. We hope they will reach there');" style="color: black !important;"> <b>Location</b><br>Send Location to nearest Police station</td></a>
+                    </tr>
+                    <tr>
+                        <td> <img src="{% static 'images/female.jpg' %} " width="70 " height="70 " alt="india logo "> </td>
+                        <td style="font-size:12px; "><a href="#" style="color: black !important;"><b>Women Safety </b><br>Location to be directly sent to the nearest Police Station </td></a>
+                    </tr>
+                    <tr>
+                        <td> <img src="{% static 'images/amb.png' %} " width="70 " height="70 " alt="india logo "></td>
+                        <td style="font-size:12px; "><a href="location" onclick="alert('Your current location has been send to the nearest available hospital. We hope they will reach there soon.');"  style="color: black !important;"><b>Ambulance Service</b><br>Avail ambulance to your location</td></a>
+                    </tr>
+                    <!-- onclick="alert('Your current location has been send to the nearest available hospital. We hope they will reach there soon.');" -->
+                    <tr>
+                        <td> <img src="{% static 'images/d1.jpg' %} " width="70 " height="70 " alt="india logo "></td>
+                        <td style="font-size:12px; "> <a href="#" style="color: black !important;"><b>Medical Query</b><br>Ask me about diseases/Symptoms/Treatments through video call</td></a>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {% if got_l %}
+<script type="text/javascript">
+    alert('Your current location has been send to the nearest available hospital. We hope they will reach there soon.');
+</script>
+{% endif %} -->
+
+
+<div>
+    <div style="position:fixed; margin-left:89%;margin-top:205px; ">
+        <button class="pulse-button "><img src="{% static 'images/faa.png' %}" alt="" srcset=""></button>
+        <div align="center " style=" padding:5px; color: #FF0000; font-weight:300; font-size:20px; font-family: 'Roboto';padding-top:3px;margin-right:5px ">
+            <font style="font-weight:400; ">Emergency Assistant</font>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 450px;">
+    <div style="text-align: center;background: #f7f7f9; width:600px; border-radius:50px; padding-top: 20px; margin-left: 55px;">
+        <h3>CRIMES AGAINST WOMEN</h3>
+        <p><a href="analytics/overyears"> Click here for Analysis over the years</a></p>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#demo">With respect to every State</button>
+        <div id="demo" class="collapse">
+            <br> <a href="analytics/chart2001"> 2001 </a>
+            <br> <a href="analytics/chart2002"> 2002 </a>
+            <br> <a href="analytics/chart2003"> 2003 </a>
+            <br> <a href="analytics/chart2004"> 2004 </a>
+            <br> <a href="analytics/chart2005"> 2005 </a>
+            <br> <a href="analytics/chart2006"> 2006 </a>
+            <br> <a href="analytics/chart2007"> 2007 </a>
+            <br> <a href="analytics/chart2008"> 2008 </a>
+            <br> <a href="analytics/chart2009"> 2009 </a>
+            <br> <a href="analytics/chart2010"> 2010 </a>
+            <br>
+        </div>
+        <br><br>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#demo1">With respect to victims Age</button>
+        <div id="demo1" class="collapse">
+            <br> <a href="analytics/pie2001"> 2001 </a>
+            <br> <a href="analytics/pie2002"> 2002 </a>
+            <br> <a href="analytics/pie2003"> 2003 </a>
+            <br> <a href="analytics/pie2004"> 2004 </a>
+            <br> <a href="analytics/pie2005"> 2005 </a>
+            <br> <a href="analytics/pie2006"> 2006 </a>
+            <br> <a href="analytics/pie2007"> 2007 </a>
+            <br> <a href="analytics/pie2008"> 2008 </a>
+            <br> <a href="analytics/pie2009"> 2009 </a>
+            <br> <a href="analytics/pie2010"> 2010 </a>
+            <br>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+
+<div class="container">
+    <div style="text-align: center;background: #f7f7f9; width:600px; margin-top: 20px; margin-bottom: 20px; padding-bottom: 25px; border-radius:50px; padding-top: 20px; margin-left: 55px;">
+        <h2>MURDERS</h2>
+        <p><a href="analytics/murders"> Click here for Analysis over the years</a></p>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#dem">With respect to each state</button>
+        <div id="dem" class="collapse">
+            <br><a href="analytics/murd2001"> 2001 </a>
+            <br><a href="analytics/murd2002"> 2002 </a>
+            <br><a href="analytics/murd2003"> 2003 </a>
+            <br><a href="analytics/murd2004"> 2004 </a>
+            <br><a href="analytics/murd2005"> 2005 </a>
+            <br><a href="analytics/murd2006"> 2006 </a>
+            <br><a href="analytics/murd2007"> 2007 </a>
+            <br><a href="analytics/murd2008"> 2008 </a>
+            <br><a href="analytics/murd2009"> 2009 </a>
+            <br><a href="analytics/murd2010"> 2010 </a>
+            <br>
+        </div>
+        <br>
+        <br>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#pie">With respect to victims Age</button>
+        <div id="pie" class="collapse">
+            <br><a href="analytics/murdpie2001"> 2001 </a>
+            <br> <a href="analytics/murdpie2002"> 2002 </a>
+            <br> <a href="analytics/murdpie2003"> 2003 </a>
+            <br> <a href="analytics/murdpie2004"> 2004 </a>
+            <br> <a href="analytics/murdpie2005"> 2005 </a>
+            <br> <a href="analytics/murdpie2006"> 2006 </a>
+            <br> <a href="analytics/murdpie2007"> 2007 </a>
+            <br> <a href="analytics/murdpie2008"> 2008 </a>
+            <br> <a href="analytics/murdpie2009"> 2009 </a>
+            <br> <a href="analytics/murdpie2010"> 2010 </a><br>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div style="text-align: center;background: #f7f7f9; width:600px; margin-top: 20px; margin-bottom: 50px; padding-bottom: 25px; border-radius:50px; padding-top: 20px; margin-left: 55px;">
+        <h2>SHOOTINGS IN SCHOOLS </h2>
+        <p><a href="analytics/shooting"> Time series plot of the casualities over the years</a></p>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#citi">With respect to cities</button>
+        <div id="citi" class="collapse">
+            <br>
+            <p><a href="analytics/death"> Number of Deaths</a></p>
+            <p><a href="analytics/inj"> Number of Injuries</a></p>
+            <p><a href="analytics/diainj"> Number of Deaths vs Injuries</a></p>
+            <p><a href="analytics/deaandinj"> Number of Deaths + Injuries</a></p>
+        </div>
+        <br><br>
+        <button type="button" class="btn btn-info" style="width:400px; margin-top: -10px !important;" data-toggle="collapse" data-target="#shoot">With respect to State</button>
+        <div id="shoot" class="collapse">
+            <br>
+            <p><a href="analytics/shot_kil"> Number of Deaths</a></p>
+            <p><a href="analytics/shot_inj"> Number of Injuries</a></p>
+            <p><a href="analytics/injkill"> Number of Deaths vs Injuries</a></p>
+            <p><a href="analytics/fatal"> Number of Deaths + Injuries</a></p>
+        </div>
+    </div>
+</div>
+<!-- 
+{% if got_l %}
+<script type="text/javascript">
+    alert("Alert Message")
+</script>
+{% endif %}
+ -->
+
+{% endblock %}

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+html,
+body {
+    background-image: url('http://getwallpapers.com/wallpaper/full/f/e/5/60113.jpg#.XYYYA0H180s.link');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+
+/* css for login page start */
+
+.card-header h3 {
+    /* letter-spacing: 3px; */
+    font-size: xx-large;
+    text-shadow: 1px 2px 1px black;
+    font-family: 'Roboto Slab', serif;
+    /* font-family: 'Balsamiq Sans', cursive; */
+}
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.logout1 .card {
+    height: 270px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.login .card {
+    height: 470px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#fb {
+    color: darkblue;
+}
+
+#gg {
+    color: darkgreen;
+}
+
+#tw {
+    color: blue;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 200px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+    justify-content: center !important;
+}
+
+.input-group-prepend span i {
+    font-size: 20px;
+}
+
+.input-group-prepend span label {
+    margin: 2px;
+    padding-left: 10px;
+    padding-top: 1px;
+    text-transform: uppercase !important;
+    font-weight: 600;
+    font-size: 16px;
+    /* font-family: 'Roboto Slab', serif; */
+}
+
+.card-body .user {
+    justify-content: center !important;
+    margin-left: 20px;
+}
+
+.remember {
+    margin-left: 7px;
+}
+
+.remember small {
+    color: white;
+    font-size: 15px;
+    /* font-weight: 600; */
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.links {
+    margin-top: 5px;
+    color: white;
+    font-weight: 600;
+    font-size: larger;
+    letter-spacing: 1px;
+    text-shadow: 0.5px 0.5px 0.5px black;
+    font-family: 'Roboto Slab', serif;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+.links:hover {
+    color: black;
+}
+
+.register {
+    margin-left: 30px;
+    /* text-align: center; */
+    box-shadow: 1px 1px 1px 1px black;
+    font-weight: 600 !important;
+    border-radius: 15px;
+    padding-top: 3px;
+    padding-left: 10px;
+    font-size: large;
+    padding-right: 10px;
+    text-decoration: none !important;
+    color: black;
+    background: #fff;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1px;
+}
+
+.register:hover {
+    color: #fff;
+    background: black;
+}
+
+.log-btn {
+    margin-top: 40px;
+    margin-left: 170px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: larger;
+    background-color: #FFC312;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    letter-spacing: 1px;
+    font-family: 'Roboto Slab', serif;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.log-btn:hover {
+    color: black;
+    text-shadow: 0px 0px 0px black;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+
+/* css for login page end */
+
+
+/* CSS For Logout only starts */
+
+.logout {
+    background: #fff;
+    margin-top: 90px;
+    margin-left: 6px;
+    width: 450px;
+    border-radius: 15px;
+    /* justify-content: center; */
+    text-align: center;
+    /* text-decoration: none; */
+    /* color: black !important; */
+    /* padding: 2px; */
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.logout a {
+    /* padding: 10px; */
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    font-family: 'Roboto Slab', serif;
+    color: black !important;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    /* text-shadow: 1px 1px 1px black; */
+}
+
+.logout a:hover {
+    color: #fff !important;
+    /* background: black; */
+}
+
+.logout:hover {
+    background: #FFC312;
+}
+
+.logout a .log:hover {
+    color: black;
+}
+
+
+/* CSS For Logout only ends */

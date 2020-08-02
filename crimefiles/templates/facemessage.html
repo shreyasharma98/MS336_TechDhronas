@@ -1,0 +1,36 @@
+{% extends 'base1.html' %} 
+{% load staticfiles %}
+{% block username %} {{who}} {% endblock %}
+
+
+
+{% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+        <div class="container" style="color: #B51714 !important;">
+            <ul class="nav justify-content-start">
+                <li class="nav-item" style="margin-left: -12px;">
+                    <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+                </li>
+                <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                    <a style="color:#B51714 !important;" href="#" class="nav-link"></a>
+                </li>
+            </ul>
+            <ul class="nav justify-content-end ml-auto">
+<!--             {% comment %} <li class="nav-item "><a href="/crimefiles/createcomplaintnew" style="color:#B51714 !important;" class="nav-link">NEW COMPLAINT</a></li> {% endcomment %}
+            {% comment %} <li class="nav-item "><a href="/accounts/logout" style="color:#B51714 !important;" class="nav-link">LOGOUT</a></li> {% endcomment %} -->
+            </ul>
+        </div>
+</nav>
+{% endblock %}
+
+{% block complaint_details %}
+    <div class="container p" style="text-align: center; margin-top:50px;margin-left:420px;background:#f7f7f9; width:700px; padding-top:50px; padding-left:60px;padding-right:60px; padding-bottom:50px;border-radius:50px;">
+        <h3>
+            <div class="row">
+            Your Verification Process has Been done Successfully !
+            </div>
+        </h3>
+        <h5 style="margin-top: 20px;">Click on the Button below to Proceed Further</h5>
+            <a href="faceback" style="margin-left: 80px;" class="btn btn-primary">PROCEED FURTHER<img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+    </div>
+{% endblock %}

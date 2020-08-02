@@ -1,0 +1,147 @@
+/* .circle {
+    width: 50px;
+    height: 50px;
+    background: red;
+    margin: 50px;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 2px 3px white;
+    border: 1px solid red;
+}
+
+.line {
+    border-left: 3px solid green;
+    height: 50px;
+    margin-left: 70px;
+    margin-top: -50px;
+} */
+
+.drawline {
+    border-left: 2px solid green;
+    height: 40px;
+    margin-left: 14px;
+    margin-top: -5px;
+}
+
+.c {
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* vertical-align: middle; */
+    border: 3px solid green;
+    position: relative;
+    box-shadow: inset 0px 2px 2px 3px lightblue;
+}
+
+.c img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+}
+
+.box {
+    /* background-color: hotpink; */
+    /* background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); */
+    /* background: #2980B9; */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: #1c92d2; */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to top, #f2fcfe, #1c92d2); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: #4AC29A; */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to top, #BDFFF3, #4AC29A); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to left, #BDFFF3, #4AC29A); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #a8ff78;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #78ffd6, #a8ff78);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #78ffd6, #a8ff78);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 250px;
+    /* padding: 5px; */
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 10px;
+    height: 70px;
+    margin-top: -5px;
+    /* padding-bottom: -10px; */
+    position: relative;
+}
+
+.boxtext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 70px;
+    margin-top: 10px;
+}
+
+.whole {
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+.header {
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 100px;
+    margin-left: 55px;
+    margin-bottom: 20px;
+    margin-top: -5px;
+    /* background: #200122; */
+    padding-top: 5px;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #6f0000, #200122); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #6f0000, #200122); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0f70ce;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #fc4a1a, #0f70ce); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #fc4a1a, #0f70ce); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.header span {
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 5px !important;
+    padding-top: 5px;
+}
+
+.main-box {
+    /* box-shadow: 1px 1px 5px 1px rgb(200, 200, 201); */
+    padding-bottom: 20px;
+    /* margin-right: 1px; */
+    /* border: 1px solid black; */
+    max-width: 25% !important;
+}
+
+.secondrow {
+    margin-top: 20px;
+}
+
+.onerow {
+    margin-top: 50px !important;
+}
