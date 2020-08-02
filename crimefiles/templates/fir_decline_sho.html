@@ -1,0 +1,54 @@
+{% extends "base1.html" %}
+{% load staticfiles %}
+{% block username %}{{ who }} {% endblock %}
+{% block linkstyling %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/audio.css' %}">
+{% endblock %}
+{% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+    <div class="container" style="color: #B51714 !important;">
+        <ul class="nav justify-content-start">
+            <li class="nav-item" style="margin-left: -12px;">
+                <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+            </li>
+            <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                <a style="color:#B51714 !important;" href="#" class="nav-link">ADD YOUR REASON FOR DECLINATION</a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-end ml-auto">
+            <li class="nav-item ">
+                <a style="color:#B51714 !important;" class="nav-link" href="/crimefiles/complaint_list/">Go Back</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock%} 
+{% block complaint_details %}
+    <div class="container" style="margin-top:30px;margin-left:420px;background:#f7f7f9; width:700px; padding-top:20px; padding-left:20px; padding-bottom:20px;border-radius:50px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="m-2 form-group">
+                <label for="fname">Your Reason for Declining the Complaint :</label>
+                <textarea type="text" rows="4" placeholder="Declination Reason " required name="decline_reason" class="form-control"></textarea>
+            </div>
+                <label style="margin-bottom:-30px !important; margin-left:10px;">Please Record your Statement</label>
+                <div style="margin-top:-0px; margin-left:10px;" id="controls">
+                    <button class="btnn" id="recordButton">Record</button>
+                    <button class="btnn" id="pauseButton" disabled>Pause</button>
+                    <button class="btnn" id="stopButton" disabled>Stop</button>
+                </div>
+                <div style="margin-top:-0px; margin-left:10px; margin-bottom:-20px;" id="formats">Format: start recording to see sample rate</div>
+                <p><strong style=" margin-left:10px;"  >Recordings:</strong></p>
+                <ol style=" margin-left:10px;" id="recordingsList"></ol>
+            <button style="margin-left: 280px; margin-top: 10px;height:40px;" type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="{% static 'js/audiodsho.js' %}" ></script>
+{% endblock %}
+

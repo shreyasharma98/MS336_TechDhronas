@@ -1,0 +1,652 @@
+{% extends 'base1.html' %} 
+{% load staticfiles %} 
+
+{% block username %} {{who}} {% endblock %}
+
+{% block yellow %}
+<nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
+    <div class="container" style="color: #B51714 !important;">
+        <ul class="nav justify-content-start">
+            <li class="nav-item" style="margin-left: -12px;">
+                <a href="#" class="nav-link"><img src="https://img.icons8.com/fluent/30/000000/list.png" /></a>
+            </li>
+            <li class="nav-item" style="margin-left: -20px; color:#B51714 !important; font-weight: 900; font-size: 20px;">
+                <a style="color:#B51714 !important;" href="#" class="nav-link">DETAILS OF YOUR COMPLAINT NUMBER : {{title}}</a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-end ml-auto">
+            {% if not instance5 %} 
+                {% comment %} {% if not instance2 and instance.freport_status == "Facilitator Report Not Added" %} 
+                    {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %} 
+                        {% block option1 %}
+                        <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}edit" style="color:#B51714 !important;" class="nav-link">EDIT COMPLAINT</a> </li>
+                        {% endblock %} 
+                    {% endif %} 
+                {% endif %}  {% endcomment %}
+                {% if instance.status == "FIR Filed" %} 
+                    {% if is_police or is_sho or is_sp %} 
+                        {% block option2 %}
+                        <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}createcopstatus" style="color:#B51714 !important;" class="nav-link">
+                                        ADD POLICE PROCEEDINGS</a> </li>{% endblock %} 
+                    {% endif %} 
+                {% if is_court %} 
+                    {% block option3 %}
+                    <li class="nav-item ">
+                        <a href="{{object.get_absolute_url}}createcasestatus" style="color:#B51714 !important;" class="nav-link">
+                                    ADD COURT PROCEEDINGS</a></li> {% endblock %} 
+                {% endif %} 
+            {% endif %} 
+
+            {% if instance.status == "Complaint Under Progress" or instance.status == "Complaint Registered"%} 
+                {% if is_police and instance.declinedstatus == "Declined by no one" %} 
+                    {% if instance.freport_status == "Facilitator Report Added" %} 
+                        {% block option4 %}
+                        <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}createfirpolice" style="color:#B51714 !important;" class="nav-link">
+                                            FILE FIR</a></li>
+                        {% endblock %} 
+                        {% block option5 %}
+                        <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}declinefirpolice" style="color:#B51714 !important;" class="nav-link">
+                                            DECLINE COMPLAINT</a></li>
+                        {% endblock %} 
+                    {% endif %} 
+                {% endif %} 
+
+                {% if is_sho %} 
+                    {% if instance.declinedstatus == "Declined by SHO" %} 
+                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                            {% block option6 %}
+                            <li class="nav-item ">
+                                <a href="{{object.get_absolute_url}}createfirsho" style="color:#B51714 !important;" class="nav-link">
+                                                    FILE FIR</a></li>{% endblock %} 
+                            {% block option7 %}
+                            <li class="nav-item ">
+                                <a href="{{object.get_absolute_url}}declinefirsho" style="color:#B51714 !important;" class="nav-link">
+                                                    DECLINE COMPLAINT</a></li>{% endblock %} 
+                        {% endif %} 
+                    {% endif %} 
+                {% endif %} 
+
+                {% if is_court %}
+                    {% if instance.declinedstatus == "Declined by SP" %}
+                        {% if instance.freport_status == "Facilitator Report Added" %}
+                            {% if instance.payment %}
+                                {% block option10 %}
+                            <li class="nav-item ">
+                                <a href="{{object.get_absolute_url}}createfircourt" style="color:#B51714 !important;" class="nav-link">
+                                                    FILE FIR</a></li>{% endblock %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            
+                {% comment %} {% if is_sp %}
+                    {% if instance.declinedstatus == "Declined by SHO" %} 
+                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                            {% block option8 %}
+                            <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}createfirsp" style="color:#B51714 !important;" class="nav-link">
+                                                FILE FIR</a></li>{% endblock %} 
+                            {% block option9 %}
+                            <li class="nav-item ">
+                            <a href="{{object.get_absolute_url}}declinefirsp" style="color:#B51714 !important;" class="nav-link">
+                                                DECLINE COMPLAINT</a></li>{% endblock %} 
+                        {% endif %} 
+                    {% endif %} 
+                {% endif %} 
+
+                {% if is_court %} 
+                    {% if instance.declinedstatus == "Declined by SP" %} 
+                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                            {% block option10 %}
+                            <li class="nav-item ">
+                                <a href="{{object.get_absolute_url}}createfircourt" style="color:#B51714 !important;" class="nav-link">
+                                                    FILE FIR</a></li>{% endblock %} 
+                        {% endif %}
+                    {% endif %} 
+                {% endif %}  {% endcomment %}
+
+            {% endif %} 
+
+            {% if is_court %} 
+            {% if instance.status == "Case Open" %} 
+            {% block option11 %}
+            <li class="nav-item ">
+                <a href="{{object.get_absolute_url}}closecase" style="color:#B51714 !important;" class="nav-link">
+                            CLOSE CASE</a></li>{% endblock %} 
+            {% endif %} 
+            {% endif %} 
+            {% endif %} 
+            {% block option12 %}
+            <li class="nav-item ">
+                <a href="/crimefiles/complaint_list/" style="color:#B51714 !important;" class="nav-link">
+                GO BACK</a></li>
+            {% endblock %}
+        </ul>
+    </div>
+</nav>
+{% endblock %} 
+
+{% block complaint_details %}
+<div class="container mt-2">
+    <ul class="list-group">
+        
+        <li class=" pt-1 pl-2 pr-0 pb-3 m-1 list-group-item list-group-item-dark list-group-item-action" style="postion:relative">
+            {% if not instance5 %} 
+                {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %} 
+                    {% if instance.sketchstatus == "Criminal Sketch Not Added" and instance.csignstatus == "Csign Not Added" %}
+                    <div class="row">
+                    <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Proceed Further to complete your Complaint Registration Process.</span>
+                    <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                        <a href="{{object.get_absolute_url}}open_sketch" class="btn btn-danger">Proceed Further <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                    </div>
+                    </div>
+                    {% endif %} 
+                    {% if not instance.sketchstatus == "Criminal Sketch Not Added" and instance.csignstatus == "Csign Added" %} 
+                        {% if instance.aadharverification_status == "Aadhar Not Verified" %}
+                            <div class="row">
+                            <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Next Step is Aadhar Verification of Complainant</span>
+                            <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                                <a href="{{object.get_absolute_url}}verify_aadhar" class="btn btn-danger">GO FOR AADHAR VERIFICATION <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                            </div>
+                            <div class="mt-1" style="position:absolute; top:7px; right:320px;" >
+                                <a href="{{object.get_absolute_url}}skip_aadhar" class="btn btn-danger">SKIP AADHAR VERIFICATION <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                            </div>
+                            </div>
+                        {% endif %} 
+                    {% if instance.aadharverification_status == "Aadhar Verified" or instance.aadharverification_status == "Skipped Aadhar Verification" %} 
+                        {% if instance.fassignstatus == "Facilitator Not Assigned" %}
+                            <div class="row">
+                            <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Select a Facilitator For Your Help</span>
+                            <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                                <a href="{{object.get_absolute_url}}facilitator_details" class="btn btn-danger">SELECT FACILITATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                            </div>
+                            </div>
+                        {% endif %} 
+                    {% endif %} 
+                    {% if instance.declinedstatus == "Declined by SP" %}
+                        {% if instance.payment %}
+                            <div class="row">
+                                <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">
+                                Your Payment for filing the FIR iss done successfully. Now Magistrate will file your FIR in some time.
+                                </span>
+                            </div>
+                        {% endif %}
+                        {% if not instance.payment %}
+                        <div class="row">
+                            <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Request Magistrate To file FIR</span>
+                            <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                                <a href="{{object.get_absolute_url}}request_magistrate" class="btn btn-danger">Request Magistrate<img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                            </div>
+                            <div class="mt-1" style="position:absolute; top:7px; right:320px;" >
+                                <a href="{{object.get_absolute_url}}drop_complaint" class="btn btn-danger">Drop Complaint<img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %} 
+                {% comment %} {% endif %}  {% endcomment %}
+                {% if instance.status == "FIR Filed" and instance.iassignstatus == "Investigator Not Assigned" %} 
+                    {% if is_police and instance.signedstatus == "Signed by SHO" %}
+                        <div class="row">
+                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
+                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                        </div>
+                        </div>
+                    {% endif %} 
+                    {% if is_sho and instance.signedstatus == "Signed by SP" %}
+                        <div class="row">
+                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
+                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                        </div>
+                        </div>
+                    {% endif %} 
+                    {% if is_sp and instance.signedstatus == "Signed by SP" %}
+                        <div class="row">
+                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
+                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                        </div>
+                        </div>
+                    {% endif %} 
+                    {% if is_court  %}
+                        <div class="row">
+                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
+                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                        </div>
+                        </div>
+                    {% endif %} 
+                {% endif %} 
+            {% endif %} 
+            {% endif %}
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row ml-3">
+                    {% if instance.sketchstatus == "Criminal Sketch Added" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">CRIMINAL SKETCH ADDED</span>
+                    {% endif %}
+                    {% if instance.sketchstatus == "Criminal Sketch Skipped" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">CRIMINAL SKETCH STEP SKIPPED</span>
+                    {% endif %}
+                    {% if instance.sketchstatus == "Criminal Sketch Not Added" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">CRIMINAL SKETCH NOT ADDED YET</span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.aadharverification_status == "Aadhar Verified" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">AADHAR VERIFIED COMPLAINT</span>
+                    {% endif %}
+                    {% if instance.aadharverification_status == "Skipped Aadhar Verification" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">AADHAR VERIFICATION STEP SKIPPED</span>
+                    {% endif %}
+                    {% if instance.aadharverification_status == "Aadhar Not Verified" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">NOT A AADHAR VERIFIED COMPLAINT</span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.freport_status == "Facilitator Report Added" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">FACILITATOR REPORT ADDED</span>
+                    {% endif %}
+                    {% if instance.freport_status == "Facilitator Report Not Added" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">FACILITATOR REPORT NOT ADDED </span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.iassignstatus == "Investigator Assigned" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">INVESTIGATOR ASSIGNED FOR COMPLAINT</span>
+                    {% endif %}
+                    {% if instance.iassignstatus == "Investigator Not Assigned" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">INVESTIGATOR NOT ASSIGNED</span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.status == "Case Open" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">CASE OPENED IN COURT</span>
+                    {% endif %}
+                    {% if not instance.status == "Case Open" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">COMPLAINT HAS NOT REACHED TO COURT</span>
+                    {% endif %}
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="row ml-3">
+                    {% if instance.csignstatus == "Csign Added" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">COMPLAINANT SIGNATURE ADDED</span>
+                    {% endif %}
+                    {% if instance.csignstatus == "Csign Not Added" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">COMPLAINANT SIGNATURE NOT ADDED</span>
+                    {% endif %}        
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.fassignstatus == "Facilitator Assigned" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">FACILITATOR ASSIGNED FOR COMPLAINT</span>
+                    {% endif %}
+                    {% if instance.fassignstatus == "Facilitator Not Assigned" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">FACILITATOR NOT ASSIGNED</span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.status == "FIR Filed" or instance.status == "Case Open" or instance.status == "Case Closed" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">FIR FILLED</span>
+                    {% endif %}
+                    {% if instance.status == "Complaint Registered" or instance.status == "Complaint Under Progress" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">FIR NOT FILLED YET</span>
+                    {% endif %}
+                    </div>
+
+                    <div class="row ml-3 mt-2">
+                    {% if instance.investigation_status == "Investigation Done"  %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">INVESTIGATION ENDED</span>
+                    {% endif %}
+                    {% if instance.investigation_status == "Investigation Not Started" or instance.investigation_status == "Investigation Started" or instance.investigation_status == "Investigation Under Progress"  %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                        {% if instance.iassignstatus == "Investigator Not Assigned" %}
+                        <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">INVESTIGATION NOT STARTED YET</span>
+                        {% endif %}
+                        {% if instance.iassignstatus == "Investigator Assigned" %}
+                        <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">INVESTIGATION UNDER PROGRESS</span>
+                        {% endif %}
+                    {% endif %}
+                    </div>
+                    
+                    {% comment %} {% if instance.status == "Case Open" %} {% endcomment %}
+                    <div class="row ml-3 mt-2 mb-2">
+                    {% if instance.status == "Case Closed" %}
+                    <img src="https://img.icons8.com/color/30/000000/checked--v1.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue; margin-top:4px;">CASE CLOSED</span>
+                    {% endif %}
+                    {% if not instance.status == "Case Closed" %}
+                    <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
+                    <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">CASE NOT CLOSED YET</span>
+                    {% endif %}
+                    </div>
+                    {% comment %} {% endif %} {% endcomment %}
+
+                </div>
+            </div>
+        </li>
+        
+        <!--Complaint details section start -->
+        <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-primary list-group-item-action " style="position:relative;">
+            <div class="row">
+                <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
+                    COMPLAINT DETAILS
+                </div>        
+                {% if instance.sho_filefir or instance.sp_filefir or instance.m_filefir %}
+                <div class="pdf-btn" style="position: absolute; top:10px; right: 20px;">
+                    <a href="{{object.get_absolute_url}}fir_pdf" class="btn btn-primary">DOWNLOAD FIR PDF</a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                NAME OF COMPLAINANT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.nameofcomplainant}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                ADDRESS OF COMPLAINANT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.addressofcomplainant}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                PHONE NUMBER OF COMPLAINANT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.phone}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                E-MAIL ID OF COMPLAINANT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.email}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                ROLE OF COMPLAINANT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.roleofcomplainant}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                DATE AND TIME OF INCIDENCE :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.datetimeofcrime}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                PLACE WHERE INCIDENT OCCURS :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.placeofincidence}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                TYPE OF INCIDENT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.typeofincidence}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                DESCRIPTION OF INCIDENT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.descriptionofcrime}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                NAME OF SUSPECT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.nameofsuspect}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                ADDRESS OF SUSPECT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.addressofsuspect}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;font-weight: 600;">
+                                OTHER DETAILS ABOUT SUSPECT :</span></div>
+                <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.detailsofsuspect}}</span></div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;padding-top: 5px; font-weight: 600;">
+                                STATEMENT OF COMPLAINANT :</span></div>
+                <div class="col-6">
+<!--                     <span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.userstatement}}</span> -->
+                    {% with 'userstatement/'|add:who|add:'.wav' as audio_static %}
+                    <audio controls>
+                        <source src="{% static audio_static %}" type="audio/wav">
+                        <source src="{% static audio_static %}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    {% endwith %}
+                </div>
+            </div>
+            {% if instance.sketchstatus == "Criminal Sketch Added" %}
+            <div class="mt-1 ml-1 row">
+                {% with 'Criminal Sketches/'|add:filename|add:'.png' as image_static %}
+                <div class="col-12">
+                    <span style="color: black;font-size:18px;font-weight: 600;">SKETCH OF SUSPECT :</span><br>
+                    <img class="mt-2" style="height: 500px; width:600px;" src="{% static image_static %}" alt="">
+                </div>
+                {% endwith %}
+            </div>
+            {% endif %}
+            {% if instance.csignstatus == "Csign Added" %}
+            <div class="mt-1 ml-1 row">
+                {% with 'Complainant Signatures/'|add:filename|add:'.png' as image_static %}
+                <div class="col-12">
+                    <span style="color: black;font-size:18px;font-weight: 600;">COMPLAINANT SIGNATURE :</span><br>
+                    <img class="mt-2" style="height: 300px; width:600px;" src="{% static image_static %}" alt="">
+                </div>
+                {% endwith %}
+            </div>
+            {% endif %}
+
+        </li>
+        <!--complaint details section end-->
+
+        {% if instance.status == "Complaint Under Progress" %}
+        <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-danger list-group-item-action" style="postion:relative">
+            <div class="row mb-1">
+                    <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
+                        DECLINATION STATUS
+                    </div>        
+            </div>
+            {% if sho_decline %}
+            <div class="mt-1 ml-1 row">
+                <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
+                                Declinations Status :</span></div>
+                <div class="col-9"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{ instance.decline_reason_sho }}</span></div>
+            </div>
+            {% endif %}
+
+
+
+        </li>
+        {% endif %}
+
+
+
+
+        {% if instance.fassignstatus == "Facilitator Assigned" %}
+        <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-warning list-group-item-action" style="postion:relative">
+        {% for f in f_instance %}
+                <div class="row mb-1">
+                    <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
+                        ASSIGNED FACILITATOR DETAILS
+                    </div>        
+                </div>
+                <div class="mt-1 ml-1 row">
+                    <div class="col-4">
+                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.fimage}}" width="220px" height="220px" alt="Facilitator_Images"> 
+                    </div>
+                    <div class="col-7" style="background:#fff;margin-left:5px; border-radius:30px; margin-top:20px;">
+                        <div class="mt-2 ml-1 row pt-3 pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                NAME OF FACILITATOR :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.nameoffacilitator}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                ADDRESS  :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.faddress}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                CONTACT NUMBER :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.fphone}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                E-MAIL ID :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.femail}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                CASES SOLVED BEFORE :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.noofcasesassigned}}</span></div>
+                        </div>
+                    </div>
+                </div>       
+        {% endfor %}
+        </li>
+        {% endif %}
+
+        {% if instance.freport_status == "Facilitator Report Added" %}
+        {% for r in freport_instance %}
+        <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-success list-group-item-action" >
+            <div class="row mb-2">
+                <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
+                    FACILITATOR REPORT
+                </div>        
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
+                                VIEWS OF FACILITATOR :</span></div>
+                <div class="col-9"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{r.facilitatorviews}}</span></div>
+            </div>
+            <div class="mt-2 mb-3 ml-1 row">
+                <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
+                                EVIDENCES COLECTED :</span></div>
+                <div class="col-9">
+                     <img style="margin-right:15px;" src="/media/{{r.f_evidence1}}" width="220px" height="220px"> 
+                     <img style="margin-right:15px;" src="/media/{{r.f_evidence2}}" width="220px" height="220px"> 
+                     <img  src="/media/{{r.f_evidence3}}" width="220px" height="220px"> 
+                </div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-3 mt-3"><span style="color: black;font-size:18px;font-weight: 600;">
+                                FACILITATOR STATEMENT :</span></div>
+                <div class="col-9">
+                {% with 'fstatement/'|add:filename|add:'.wav' as audio_static %}
+                    <audio controls>
+                        <source src="{% static audio_static %}" type="audio/wav">
+                        <source src="{% static audio_static %}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                {% endwith %}
+                </div>
+            </div>        
+        </li>
+        {% endfor %}
+        {% endif %}
+
+
+        {% if instance.iassignstatus == "Investigator Assigned" %}
+        <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-danger list-group-item-action" style="postion:relative">
+        {% for f in i_instance %}
+                <div class="row mb-1">
+                    <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
+                        ASSIGNED INVESTIGATOR DETAILS
+                    </div>        
+                </div>
+                <div class="mt-1 ml-1 row">
+                    <div class="col-4">
+                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.investigator_image}}" width="220px" height="220px" alt="Facilitator_Images"> 
+                    </div>
+                    <div class="col-7" style="background:#fff;margin-left:5px; border-radius:30px; margin-top:20px;">
+                        <div class="mt-2 ml-1 row pt-3 pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                NAME OF INVESTIGATOR :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.nameofinvestigator}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                ADDRESS  :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.iaddress}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                CONTACT NUMBER :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.iphone}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                E-MAIL ID :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.iemail}}</span></div>
+                        </div>
+                        <div class="mt-2 ml-1 row pl-2">
+                            <div class="col-5"><span style="color: black;font-size:18px;font-weight: 600;">
+                                CASES SOLVED BEFORE :</span></div>
+                            <div class="col-6"><span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{f.noofcasesassigned}}</span></div>
+                        </div>
+                    </div>
+                </div>       
+        {% endfor %}
+        </li>
+        {% endif %}
+
+    </ul>
+</div>
+
+
+{% endblock %}
