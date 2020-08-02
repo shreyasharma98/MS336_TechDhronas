@@ -1,0 +1,79 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- <title>Our Responsive website</title> -->
+    <link rel="stylesheet" href="{% static 'css/facilitator.css'%}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Choose Facilitator</title>
+    <style>
+        .box:hover {
+            background: #FFED75;
+        }
+        
+        .box:hover h2 {
+            color: #B51714;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="happyclients">
+        <div class="container drop1 form-group">
+            <div class="row ">
+                <span class="mt-2 ml-3 mr-3">Please Select A Facilitator For Your Help In Filing an FIR.</span>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <select style="margin-left: 200px; width: 250px;margin-right: 35px;" name="fnamechoosen" class="mt-1 drop form-control">
+                        {% for a in facilitators %}
+                            {% if a.currentlyassigned == False %}
+                            <option>{{ a.nameoffacilitator }}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                        <button style="background-color:#B51714" class="btn btn-success">SELECT  FACILITATOR<img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="container headings text-center">
+            <h1 class="text-center font-weight-bold ">
+                FACILITATORS NEAR TO YOU
+            </h1>
+            <!-- <p class="text-capitalize pt-1">OUR SATISFIED CUSTOMERS SAID</p> -->
+        </div>
+        <!--Crousal start-->
+        <div id="demo">
+            <div class="container">
+                <div class="row">
+                    {% for i in facilitators %}
+                    <div class="m-auto" class="col-lg-4">
+                        <div class="box" style="width:350px; height:300px;">
+                            <a href="#">
+                                <img class="img-fluid img-thumbnail" src="/media/{{i.fimage}}" alt="">
+                            </a>
+                            <h1 class="mb-3">{{i.nameoffacilitator}}</h1>
+                            <h2><i class="fa fa-phone fa-x"></i> {{i.fphone}}</h2>
+                            <h2><i class="fa fa-envelope fa-x"></i> {{i.femail}}</h2>
+                            <h2><i class="fa fa-address-book fa-x"></i> {{i.faddress}}</h2>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
