@@ -1,5 +1,5 @@
-{% extends 'base1.html' %} 
-{% load staticfiles %} 
+{% extends 'base1.html' %}
+{% load staticfiles %}
 
 {% block username %} {{who}} {% endblock %}
 
@@ -15,60 +15,60 @@
             </li>
         </ul>
         <ul class="nav justify-content-end ml-auto">
-            {% if not instance5 %} 
-                {% comment %} {% if not instance2 and instance.freport_status == "Facilitator Report Not Added" %} 
-                    {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %} 
+            {% if not instance5 %}
+                {% comment %} {% if not instance2 and instance.freport_status == "Facilitator Report Not Added" %}
+                    {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %}
                         {% block option1 %}
                         <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}edit" style="color:#B51714 !important;" class="nav-link">EDIT COMPLAINT</a> </li>
-                        {% endblock %} 
-                    {% endif %} 
+                        {% endblock %}
+                    {% endif %}
                 {% endif %}  {% endcomment %}
-                {% if instance.status == "FIR Filed" %} 
-                    {% if is_police or is_sho or is_sp %} 
+                {% if instance.status == "FIR Filed" %}
+                    {% if is_police or is_sho or is_sp %}
                         {% block option2 %}
                         <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}createcopstatus" style="color:#B51714 !important;" class="nav-link">
-                                        ADD POLICE PROCEEDINGS</a> </li>{% endblock %} 
-                    {% endif %} 
-                {% if is_court %} 
+                                        ADD POLICE PROCEEDINGS</a> </li>{% endblock %}
+                    {% endif %}
+                {% if is_court %}
                     {% block option3 %}
                     <li class="nav-item ">
                         <a href="{{object.get_absolute_url}}createcasestatus" style="color:#B51714 !important;" class="nav-link">
-                                    ADD COURT PROCEEDINGS</a></li> {% endblock %} 
-                {% endif %} 
-            {% endif %} 
+                                    ADD COURT PROCEEDINGS</a></li> {% endblock %}
+                {% endif %}
+            {% endif %}
 
-            {% if instance.status == "Complaint Under Progress" or instance.status == "Complaint Registered"%} 
-                {% if is_police and instance.declinedstatus == "Declined by no one" %} 
-                    {% if instance.freport_status == "Facilitator Report Added" %} 
+            {% if instance.status == "Complaint Under Progress" or instance.status == "Complaint Registered"%}
+                {% if is_police and instance.declinedstatus == "Declined by no one" %}
+                    {% if instance.freport_status == "Facilitator Report Added" %}
                         {% block option4 %}
                         <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}createfirpolice" style="color:#B51714 !important;" class="nav-link">
                                             FILE FIR</a></li>
-                        {% endblock %} 
+                        {% endblock %}
                         {% block option5 %}
                         <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}declinefirpolice" style="color:#B51714 !important;" class="nav-link">
                                             DECLINE COMPLAINT</a></li>
-                        {% endblock %} 
-                    {% endif %} 
-                {% endif %} 
+                        {% endblock %}
+                    {% endif %}
+                {% endif %}
 
-                {% if is_sho %} 
-                    {% if instance.declinedstatus == "Declined by SHO" %} 
-                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                {% if is_sho %}
+                    {% if instance.declinedstatus == "Declined by SHO" %}
+                        {% if instance.freport_status == "Facilitator Report Added" %}
                             {% block option6 %}
                             <li class="nav-item ">
                                 <a href="{{object.get_absolute_url}}createfirsho" style="color:#B51714 !important;" class="nav-link">
-                                                    FILE FIR</a></li>{% endblock %} 
+                                                    FILE FIR</a></li>{% endblock %}
                             {% block option7 %}
                             <li class="nav-item ">
                                 <a href="{{object.get_absolute_url}}declinefirsho" style="color:#B51714 !important;" class="nav-link">
-                                                    DECLINE COMPLAINT</a></li>{% endblock %} 
-                        {% endif %} 
-                    {% endif %} 
-                {% endif %} 
+                                                    DECLINE COMPLAINT</a></li>{% endblock %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
 
                 {% if is_court %}
                     {% if instance.declinedstatus == "Declined by SP" %}
@@ -82,44 +82,44 @@
                         {% endif %}
                     {% endif %}
                 {% endif %}
-            
+
                 {% comment %} {% if is_sp %}
-                    {% if instance.declinedstatus == "Declined by SHO" %} 
-                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                    {% if instance.declinedstatus == "Declined by SHO" %}
+                        {% if instance.freport_status == "Facilitator Report Added" %}
                             {% block option8 %}
                             <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}createfirsp" style="color:#B51714 !important;" class="nav-link">
-                                                FILE FIR</a></li>{% endblock %} 
+                                                FILE FIR</a></li>{% endblock %}
                             {% block option9 %}
                             <li class="nav-item ">
                             <a href="{{object.get_absolute_url}}declinefirsp" style="color:#B51714 !important;" class="nav-link">
-                                                DECLINE COMPLAINT</a></li>{% endblock %} 
-                        {% endif %} 
-                    {% endif %} 
-                {% endif %} 
+                                                DECLINE COMPLAINT</a></li>{% endblock %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
 
-                {% if is_court %} 
-                    {% if instance.declinedstatus == "Declined by SP" %} 
-                        {% if instance.freport_status == "Facilitator Report Added" %} 
+                {% if is_court %}
+                    {% if instance.declinedstatus == "Declined by SP" %}
+                        {% if instance.freport_status == "Facilitator Report Added" %}
                             {% block option10 %}
                             <li class="nav-item ">
                                 <a href="{{object.get_absolute_url}}createfircourt" style="color:#B51714 !important;" class="nav-link">
-                                                    FILE FIR</a></li>{% endblock %} 
+                                                    FILE FIR</a></li>{% endblock %}
                         {% endif %}
-                    {% endif %} 
+                    {% endif %}
                 {% endif %}  {% endcomment %}
 
-            {% endif %} 
+            {% endif %}
 
-            {% if is_court %} 
-            {% if instance.status == "Case Open" %} 
+            {% if is_court %}
+            {% if instance.status == "Case Open" %}
             {% block option11 %}
             <li class="nav-item ">
                 <a href="{{object.get_absolute_url}}closecase" style="color:#B51714 !important;" class="nav-link">
-                            CLOSE CASE</a></li>{% endblock %} 
-            {% endif %} 
-            {% endif %} 
-            {% endif %} 
+                            CLOSE CASE</a></li>{% endblock %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
             {% block option12 %}
             <li class="nav-item ">
                 <a href="/crimefiles/complaint_list/" style="color:#B51714 !important;" class="nav-link">
@@ -128,15 +128,23 @@
         </ul>
     </div>
 </nav>
-{% endblock %} 
+{% endblock %}
 
 {% block complaint_details %}
 <div class="container mt-2">
     <ul class="list-group">
-        
+
         <li class=" pt-1 pl-2 pr-0 pb-3 m-1 list-group-item list-group-item-dark list-group-item-action" style="postion:relative">
-            {% if not instance5 %} 
-                {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %} 
+          {% if instance.status == "FIR Filed" and instance.investigation_status == "Investigation Not Started"  %}
+                  <div class="row">
+                  <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
+                  <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
+                      <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
+                  </div>
+                  </div>
+          {% endif %}
+            {% if not instance5 %}
+                {% if not is_police and not is_sho and not is_sp and not is_court and not is_facilitator %}
                     {% if instance.sketchstatus == "Criminal Sketch Not Added" and instance.csignstatus == "Csign Not Added" %}
                     <div class="row">
                     <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Proceed Further to complete your Complaint Registration Process.</span>
@@ -144,8 +152,8 @@
                         <a href="{{object.get_absolute_url}}open_sketch" class="btn btn-danger">Proceed Further <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
                     </div>
                     </div>
-                    {% endif %} 
-                    {% if not instance.sketchstatus == "Criminal Sketch Not Added" and instance.csignstatus == "Csign Added" %} 
+                    {% endif %}
+                    {% if not instance.sketchstatus == "Criminal Sketch Not Added" and instance.csignstatus == "Csign Added" %}
                         {% if instance.aadharverification_status == "Aadhar Not Verified" %}
                             <div class="row">
                             <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Next Step is Aadhar Verification of Complainant</span>
@@ -156,8 +164,8 @@
                                 <a href="{{object.get_absolute_url}}skip_aadhar" class="btn btn-danger">SKIP AADHAR VERIFICATION <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
                             </div>
                             </div>
-                        {% endif %} 
-                    {% if instance.aadharverification_status == "Aadhar Verified" or instance.aadharverification_status == "Skipped Aadhar Verification" %} 
+                        {% endif %}
+                    {% if instance.aadharverification_status == "Aadhar Verified" or instance.aadharverification_status == "Skipped Aadhar Verification" %}
                         {% if instance.fassignstatus == "Facilitator Not Assigned" %}
                             <div class="row">
                             <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Select a Facilitator For Your Help</span>
@@ -165,8 +173,8 @@
                                 <a href="{{object.get_absolute_url}}facilitator_details" class="btn btn-danger">SELECT FACILITATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
                             </div>
                             </div>
-                        {% endif %} 
-                    {% endif %} 
+                        {% endif %}
+                    {% endif %}
                     {% if instance.declinedstatus == "Declined by SP" %}
                         {% if instance.payment %}
                             <div class="row">
@@ -187,43 +195,17 @@
                         </div>
                         {% endif %}
                     {% endif %}
-                {% endif %} 
-                {% comment %} {% endif %}  {% endcomment %}
-                {% if instance.status == "FIR Filed" and instance.iassignstatus == "Investigator Not Assigned" %} 
-                    {% if is_police and instance.signedstatus == "Signed by SHO" %}
+                {% endif %}
+
+                {% if instance.status == "FIR Filed"  %}
                         <div class="row">
                         <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
                         <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
                             <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
                         </div>
                         </div>
-                    {% endif %} 
-                    {% if is_sho and instance.signedstatus == "Signed by SP" %}
-                        <div class="row">
-                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
-                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
-                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
-                        </div>
-                        </div>
-                    {% endif %} 
-                    {% if is_sp and instance.signedstatus == "Signed by SP" %}
-                        <div class="row">
-                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
-                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
-                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
-                        </div>
-                        </div>
-                    {% endif %} 
-                    {% if is_court  %}
-                        <div class="row">
-                        <span style="margin-left:30px; margin-top:15px; font-weight:600;font-size:18px;">Please Assign an Investigator for the FIR</span>
-                        <div class="mt-1" style="position:absolute; top:7px; right:20px;" >
-                            <a href="{{object.get_absolute_url}}investigator_details" class="btn btn-danger">SELECT INVESTIGATOR <img src="https://img.icons8.com/color/20/000000/double-right.png"/></a>
-                        </div>
-                        </div>
-                    {% endif %} 
-                {% endif %} 
-            {% endif %} 
+                {% endif %}
+            {% endif %}
             {% endif %}
             <br>
             <div class="row">
@@ -301,7 +283,7 @@
                     {% if instance.csignstatus == "Csign Not Added" %}
                     <img src="https://img.icons8.com/emoji/30/000000/hollow-red-circle-emoji.png"/>
                     <span style="margin-left:10px;font-weight:600;color:darkblue ; margin-top:4px;">COMPLAINANT SIGNATURE NOT ADDED</span>
-                    {% endif %}        
+                    {% endif %}
                     </div>
 
                     <div class="row ml-3 mt-2">
@@ -341,7 +323,7 @@
                         {% endif %}
                     {% endif %}
                     </div>
-                    
+
                     {% comment %} {% if instance.status == "Case Open" %} {% endcomment %}
                     <div class="row ml-3 mt-2 mb-2">
                     {% if instance.status == "Case Closed" %}
@@ -358,13 +340,13 @@
                 </div>
             </div>
         </li>
-        
+
         <!--Complaint details section start -->
         <li class="pt-1 pl-2 pr-0 pb-3 m-1 mt-1 list-group-item list-group-item-primary list-group-item-action " style="position:relative;">
             <div class="row">
                 <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
                     COMPLAINT DETAILS
-                </div>        
+                </div>
                 {% if instance.sho_filefir or instance.sp_filefir or instance.m_filefir %}
                 <div class="pdf-btn" style="position: absolute; top:10px; right: 20px;">
                     <a href="{{object.get_absolute_url}}fir_pdf" class="btn btn-primary">DOWNLOAD FIR PDF</a>
@@ -458,6 +440,28 @@
                     {% endwith %}
                 </div>
             </div>
+            <div class="mt-2 mb-3 ml-1 row">
+                <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
+                                EVIDENCES ADDED :</span></div>
+                <div class="col-9">
+                     <img style="margin-right:15px;" src="{% static 'images/imgg1.jpg' %}" width="220px" height="220px">
+                     <img style="margin-right:15px;" src="{% static 'images/imgg2.jpg' %}" width="220px" height="220px">
+                     <img  src="{% static 'images/imgg3.jpg' %}" width="220px" height="220px">
+                </div>
+            </div>
+            <div class="mt-1 ml-1 row">
+                <div class="col-4"><span style="color: black;font-size:18px;padding-top: 5px; font-weight: 600;">
+                                VIDEO ADDED BY COMPLAINANT</div>
+                <div class="col-6">
+            <!--                     <span style="color: #B51714; font-size: 18px;font-weight: 700;">
+                                {{instance.userstatement}}</span> -->
+                    <video width="400" controls>
+                      <source src="{% static 'images/Video1.gif' %}" type="video/gif">
+                      Your browser does not support HTML video.
+                    </video>
+
+                </div>
+            </div>
             {% if instance.sketchstatus == "Criminal Sketch Added" %}
             <div class="mt-1 ml-1 row">
                 {% with 'Criminal Sketches/'|add:filename|add:'.png' as image_static %}
@@ -487,7 +491,7 @@
             <div class="row mb-1">
                     <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
                         DECLINATION STATUS
-                    </div>        
+                    </div>
             </div>
             {% if sho_decline %}
             <div class="mt-1 ml-1 row">
@@ -512,11 +516,11 @@
                 <div class="row mb-1">
                     <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
                         ASSIGNED FACILITATOR DETAILS
-                    </div>        
+                    </div>
                 </div>
                 <div class="mt-1 ml-1 row">
                     <div class="col-4">
-                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.fimage}}" width="220px" height="220px" alt="Facilitator_Images"> 
+                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.fimage}}" width="220px" height="220px" alt="Facilitator_Images">
                     </div>
                     <div class="col-7" style="background:#fff;margin-left:5px; border-radius:30px; margin-top:20px;">
                         <div class="mt-2 ml-1 row pt-3 pl-2">
@@ -550,7 +554,7 @@
                                 {{f.noofcasesassigned}}</span></div>
                         </div>
                     </div>
-                </div>       
+                </div>
         {% endfor %}
         </li>
         {% endif %}
@@ -561,7 +565,7 @@
             <div class="row mb-2">
                 <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
                     FACILITATOR REPORT
-                </div>        
+                </div>
             </div>
             <div class="mt-1 ml-1 row">
                 <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
@@ -573,9 +577,9 @@
                 <div class="col-3"><span style="color: black;font-size:18px;font-weight: 600;">
                                 EVIDENCES COLECTED :</span></div>
                 <div class="col-9">
-                     <img style="margin-right:15px;" src="/media/{{r.f_evidence1}}" width="220px" height="220px"> 
-                     <img style="margin-right:15px;" src="/media/{{r.f_evidence2}}" width="220px" height="220px"> 
-                     <img  src="/media/{{r.f_evidence3}}" width="220px" height="220px"> 
+                     <img style="margin-right:15px;" src="/media/{{r.f_evidence1}}" width="220px" height="220px">
+                     <img style="margin-right:15px;" src="/media/{{r.f_evidence2}}" width="220px" height="220px">
+                     <img  src="/media/{{r.f_evidence3}}" width="220px" height="220px">
                 </div>
             </div>
             <div class="mt-1 ml-1 row">
@@ -590,7 +594,7 @@
                     </audio>
                 {% endwith %}
                 </div>
-            </div>        
+            </div>
         </li>
         {% endfor %}
         {% endif %}
@@ -602,11 +606,11 @@
                 <div class="row mb-1">
                     <div class="mt-2 ml-3" style="margin-left:10px; padding-left:18px; font-size:x-large; font-weight: 900;">
                         ASSIGNED INVESTIGATOR DETAILS
-                    </div>        
+                    </div>
                 </div>
                 <div class="mt-1 ml-1 row">
                     <div class="col-4">
-                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.investigator_image}}" width="220px" height="220px" alt="Facilitator_Images"> 
+                        <img style="border-radius:50%; margin-left:40px;margin-top:15px;margin-bottom:5px;" src="/media/{{f.investigator_image}}" width="220px" height="220px" alt="Facilitator_Images">
                     </div>
                     <div class="col-7" style="background:#fff;margin-left:5px; border-radius:30px; margin-top:20px;">
                         <div class="mt-2 ml-1 row pt-3 pl-2">
@@ -640,7 +644,7 @@
                                 {{f.noofcasesassigned}}</span></div>
                         </div>
                     </div>
-                </div>       
+                </div>
         {% endfor %}
         </li>
         {% endif %}

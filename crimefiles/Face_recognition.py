@@ -16,7 +16,7 @@ def face():
             # Check for id of user and label the rectangle accordingly
             if id==1:
                 cv2.putText(img, "Shreya", (x, y-4), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 1, cv2.LINE_AA)
-            elif id==3:
+            elif id==4:
                 cv2.putText(img, "Aakriti", (x, y-4), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 1, cv2.LINE_AA)
             else:
                 cv2.putText(img, "Unknown", (x, y-4), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 1, cv2.LINE_AA)
@@ -55,3 +55,5 @@ def face():
     video_capture.release()
     # Destroying output window
     cv2.destroyAllWindows()
+
+face()

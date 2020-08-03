@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+html,
+body {
+    background-image: url('http://getwallpapers.com/wallpaper/full/f/e/5/60113.jpg#.XYYYA0H180s.link');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    height: 470px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 550px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#fb {
+    color: darkblue;
+}
+
+#gg {
+    color: darkgreen;
+}
+
+#tw {
+    color: blue;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.card-body .form-group {
+    /* margin-top: 10px; */
+    margin-bottom: 25px;
+}
+
+.card-body .info {
+    justify-content: center !important;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.input-group-prepend span {
+    width: 240px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+    justify-content: left;
+}
+
+.card-header h3 {
+    font-size: xx-large;
+    font-weight: 600;
+    text-shadow: 1px 2px 1px black;
+    font-family: 'Roboto Slab', serif;
+}
+
+.input-group-prepend span i {
+    font-size: 20px;
+}
+
+.input-group-prepend span label {
+    margin: 2px;
+    padding-left: 10px;
+    padding-top: 1px;
+    text-transform: uppercase !important;
+    font-weight: 600;
+    font-size: 16px;
+    /* font-family: 'Roboto Slab', serif; */
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+.register-btn {
+    margin-top: 15px;
+    margin-left: 190px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22px;
+    background-color: #FFC312;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    letter-spacing: 1.5px;
+    /* font-family: 'Roboto Slab', serif; */
+    text-shadow: 2px 1px 2px black;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.register-btn:hover {
+    color: black;
+    background-color: #fff;
+    text-shadow: 0px 0px 0px black;
+}

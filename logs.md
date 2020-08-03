@@ -10,5 +10,3 @@ Adding Frontend of our web apps
 ### 3. Day 02 (02/08/2020) - Aakriti
 Adding Dashboard Code
 
-### 4. Day 02 (02/08/2020) - Aakriti
-Adding ChatBot Code
