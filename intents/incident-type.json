@@ -1,0 +1,67 @@
+{
+  "id": "12d32638-9d01-4b43-8e68-08fe8d21c5e5",
+  "name": "incident-type",
+  "auto": true,
+  "contexts": [
+    "incident-type"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "crime-description",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "e42dcace-c441-410c-aafe-b6e31eb1c621",
+          "name": "incidence-type",
+          "required": false,
+          "dataType": "@incidence-type",
+          "value": "$incidence-type",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "hi",
+          "speech": [
+            "अपराध का विवरण करे"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Description of Crime"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "76c1eab1-b2af-4201-bfad-1b7ade86fb1b",
+    "data": [
+      {
+        "text": "@incidence-type",
+        "meta": "@incidence-type",
+        "alias": "incidence-type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

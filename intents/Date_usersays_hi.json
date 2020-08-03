@@ -1,0 +1,17 @@
+[
+  {
+    "id": "e6d2a433-2d63-407e-b834-d4c00322c91a",
+    "data": [
+      {
+        "text": "@sys.date",
+        "meta": "@sys.date",
+        "alias": "date",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "hi",
+    "updated": 0
+  }
+]

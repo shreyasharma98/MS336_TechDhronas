@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1da26937-f22a-498c-bdd6-f9d1ef46e759",
+    "data": [
+      {
+        "text": "quick reply",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "dcd285ee-370b-4e10-ad63-f8f4b855d65e",
+    "data": [
+      {
+        "text": "hii",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "74d74a6c-4f55-4e9d-b71e-be4626333ba7",
+    "data": [
+      {
+        "text": "hii virtual cop",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2ce92002-30be-4f1f-9326-dfe11dfa7cfd",
+    "data": [
+      {
+        "text": "hey virtual cop",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f0eef006-6440-4723-a272-22340a4aa19f",
+    "data": [
+      {
+        "text": "hola",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "80eaac77-04b6-4667-ae1d-6a82ecd5a0a0",
+    "data": [
+      {
+        "text": "hloo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6d2ea403-d50e-43c2-a56d-9f899e5160eb",
+    "data": [
+      {
+        "text": "hii,I want to register a FIR",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

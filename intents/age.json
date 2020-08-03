@@ -1,0 +1,90 @@
+{
+  "id": "bfcb6d55-8789-4881-a0da-bf8c62834a1f",
+  "name": "age",
+  "auto": true,
+  "contexts": [
+    "age"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "address",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [
+        {
+          "id": "6f7b3069-9c1d-4410-87fa-173e2814ba5f",
+          "name": "invalid",
+          "required": false,
+          "dataType": "@invalid",
+          "value": "$invalid",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "62a946b3-7c68-4634-ae6c-bcbe5791d16b",
+          "name": "number",
+          "required": true,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "You are underage"
+            },
+            {
+              "lang": "hi",
+              "value": "आपकी उम्र एफआईआर पंजीकरण के लिए योग्य नहीं है"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Enter your current address"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "hi",
+          "speech": [
+            "अपना वर्तमान पता दर्ज करें"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
