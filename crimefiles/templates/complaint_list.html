@@ -1,5 +1,5 @@
-{% extends 'base1.html' %} 
-{% load staticfiles %} 
+{% extends 'base1.html' %}
+{% load staticfiles %}
 {% block username %} {{who}} {% endblock %}
 
 {% block yellow %}
@@ -30,8 +30,8 @@
 <div class="container mt-2">
     <ul class="list-group">
         <!--complaint bar start-->
-        {% for object in object_list %} 
-        {% if is_facilitator %} 
+        {% for object in object_list %}
+        {% if is_facilitator %}
         {% if object.nameoffacilitator == who %}
         <li class="p-0 m-1 mt-2 list-group-item list-group-item-success list-group-item-action">
             <div class="row">
@@ -57,12 +57,12 @@
                 <div class="col-6 clearfix">
                     <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
                                                 Track status
-                                            </a> 
+                                            </a>
                                             {% if is_facilitator %}
                                             {% comment %} {% if instance.freport_status == "Facilitator Report Not Added" %} {% endcomment %}
                     <a href="{{object.get_absolute_url}}fevidences" style="margin-top: 25px;margin-left:35px; color: white; font-weight: 600;" class="btn btn-danger float-right">
                                                 Add Evidence
-                                            </a> 
+                                            </a>
                                             {% endif %}
 
                     <a href="{{object.get_absolute_url}}" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </li>
-        {% endif %} {% endif %} 
+        {% endif %} {% endif %}
         {% if is_investigator %} {% if object.nameofinvestigatorassigned == who %}
         <li class="p-0 m-1 mt-2 list-group-item list-group-item-success">
             <div class="row">
@@ -95,20 +95,21 @@
                     </div>
                 </div>
                 <div class="col-6 clearfix">
-                    <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
-                                                Track status
-                                            </a> 
-                    <a href="{{object.get_absolute_url}}i_portal" style=" margin-right:50px;margin-top: 40px; color: white; font-weight: 600;" class="btn btn-danger float-right">
-                                                Go To Investigator
-                                            </a>
-                    <a href="{{object.get_absolute_url}}" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
-                        View Complaint
-                    </a> 
+                  <a href="{{object.get_absolute_url}}track" style="margin-right: 35px; margin-top: 25px; margin-left: 35px;color: white; font-weight: 600; " class="btn btn-danger float-right">
+                                              Track status
+                                          </a>
+                  <a href="http://358449f5cd1a.ngrok.io/" style="margin-top: 25px;margin-left:35px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                              CRIME ATTRIBUTES
+                                          </a>
+
+                  <a href="http://127.0.0.1:50/" style="margin-top: 25px; color: white; font-weight: 600;" class="btn btn-danger float-right">
+                                            SMART CCTV
+                                          </a>
+
                 </div>
             </div>
         </li>
-        {% endif %} 
-        {% endif %} 
+        {% endif %} {% endif %}
         {% if not is_facilitator and not is_investigator %}
         <li class="p-0 m-1 mt-2 list-group-item list-group-item-success">
             <div class="row">

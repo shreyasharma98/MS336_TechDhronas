@@ -1,6 +1,6 @@
-{% extends "base1.html" %} 
+{% extends "base1.html" %}
 {% load staticfiles %}
-{% block username %}{{ who }} {% endblock %} 
+{% block username %}{{ who }} {% endblock %}
 {% block linkstyling %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/audio.css' %}">
 {% endblock %}
@@ -17,66 +17,66 @@
         </ul>
         <ul class="nav justify-content-end ml-auto">
             <li class="nav-item ">
-                <a style="color:#B51714 !important;" class="nav-link" href="/crimefiles/">Go Back</a>
+                <a style="color:#B51714 !important;" class="nav-link" href="/crimefiles/complaint_list/">Go Back</a>
             </li>
         </ul>
     </div>
 </nav>
-{% endblock%} 
+{% endblock%}
 
 {% block complaint_details %}
-        <div class="container mt-2" style="margin-top:50px;margin-left:270px;background:#f7f7f9; width:900px; padding-top:15px; padding-left:20px; padding-bottom:50px;border-radius:50px;">
+        <div class="container mt-2" style="margin-top:50px; margin-left:270px; background:#f7f7f9; width:900px; padding-top:15px; padding-left:20px; padding-bottom:50px;border-radius:50px;">
             <form method="POST" action="">
                 {% csrf_token %}
                 <!-- Complainant details -->
-                <div class="m-2 form-group">
+                 <div class="m-2 form-group">
                     <label for="fname">Your Full Name :</label>
-                    <input type="text" placeholder="Full name" required name="nameofcomplainant" class="form-control">
+                    <input type="text"  value="{{ data.name }}" required name="nameofcomplainant" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Your Address :</label>
-                    <input type="text" placeholder="Address" required name="addressofcomplainant" class="form-control">
+                    <input type="text"  value="{{ data.address }}" required name="addressofcomplainant" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Your Email Address:</label>
-                    <input type="email" placeholder="abc@example.com" required name="email" class="form-control">
+                    <input type="email"  value="{{ data.email }}" required name="email" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Your Phone Number</label>
-                    <input type="text" placeholder="Phone Number" required name="phone" class="form-control">
+                    <input type="text"  value="{{ data.phone }}" required name="phone" class="form-control">
                 </div>
                 <!-- Briefof offence -->
                 <div class="m-2 form-group">
                     <label for="fname">Type of Incidence Happend (Theft, Murder, Rape, etc.)</label>
-                    <input type="text" placeholder="type of crime" name="typeofincidence" class="form-control">
+                    <input type="text"  value="{{ data.itype }}"  name="typeofincidence" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Your Role in Incidence(Victim, Witness, Heresay...)</label>
-                    <input type="text" placeholder="Your Role" name="roleofcomplainant" class="form-control">
+                    <input type="text"  value="{{ data.role }}" name="roleofcomplainant" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Date and Time of Incidence</label>
-                    <input type="text" placeholder="date time of incidence" name="datetimeofcrime" class="form-control">
+                    <input type="text"  value="{{ data.idatetime }}"  name="datetimeofcrime" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">Place of Incidence</label>
-                    <input type="text" placeholder="place where incidence occurs" name="placeofincidence" class="form-control">
+                    <input type="text"  value="{{ data.iplace }}"  name="placeofincidence" class="form-control">
                 </div>
                 <div class="m-2 form-group">
                     <label for="fname">More Description of Crime</label>
-                    <textarea placeholder="Add some more description if Incidence(optional)" rows="3" name="descriptionofcrime" class="form-control"></textarea>
+                    <textarea rows="3" name="descriptionofcrime" class="form-control">{{ data.idescription }}</textarea>
                 </div>
-                <div class="m-1 form-group">
-                    <label for="fname">Name of Suspect : </label>
-                    <input type="text" placeholder="Information about criminal" name="nameofsuspect" class="form-control">
+                <div class="m-2 form-group">
+                    <label for="fname">Suspect Name </label>
+                    <input type="text"  value="{{ data.suspectname }}"  name="nameofsuspect" class="form-control">
                 </div>
-                <div class="m-1 form-group">
-                    <label for="fname">Address of Suspect : </label>
-                    <input type="text" placeholder="Information about victim" name="addressofsuspect" class="form-control">
+                <div class="m-2 form-group">
+                    <label for="fname">Suspect Address</label>
+                    <input type="text"  value="{{ data.suspectaddress }}"  name="addressofsuspect" class="form-control">
                 </div>
-                <div class="m-1 form-group">
-                    <label for="fname">Details  of Suspect : </label>
-                    <input type="text" placeholder="Information about victim" name="detailsofsuspect" class="form-control">
+                <div class="m-2 form-group">
+                    <label for="fname">Suspect Description</label>
+                    <input type="text"  value="{{ data.suspectdescription }}"  name="detailsofsuspect" class="form-control">
                 </div>
 
                 <label>Please Record your Statement</label>
@@ -88,6 +88,21 @@
                 <div id="formats">Format: start recording to see sample rate</div>
                 <p><strong>Recordings:</strong></p>
                 <ol id="recordingsList"></ol>
+
+                <div id="formats">Format: start recording to see sample rate</div>
+                <p style="margin-top: -2px;"><strong>Your Recordings:</strong></p>
+                <ol id="recordingsList"></ol>
+
+                <label style="font-weight: 700; font-size: 19px;">If You are a Vitness Please Add Some Evidences of your Presence during the Crime.</label><br>
+                <label style="margin-top: -2px;font-weight: 600;">Upload Some Images If uh Have :</label><br>
+                <div class="row" style="margin-left: 0px;">
+                <span style="margin-right: -70px !important;">{{ form.c_evidence1 }}</span>
+                <span style="margin-right: -70px !important;">{{ form.c_evidence2 }}</span>
+                <span style="margin-right: -70px !important;">{{ form.c_evidence3 }}</span>
+                </div>
+
+                <label style="font-weight: 600;margin-top: 20px;margin-bottom: -20px; margin-right: 50px;">Please Upload Some Video If Uh Have</label><br>
+                <span style="margin-top: -10px !important;">{{ form.c_video }}</span><br>
 
                 <button type="submit" class="ml-1 mt-2 mb-4 btn btn-primary">Confirm Complaint</button>
             </form>

@@ -1,8 +1,5 @@
-{% extends 'base1.html' %} 
-{% load staticfiles %} 
-{% block linkstyling %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}"> {% endblock %} 
-{% block username %} {{who}} {% endblock %} {% block yellow %}
+{% extends 'base1.html' %} {% load staticfiles %} {% block linkstyling %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}"> {% endblock %} {% block username %} {{who}} {% endblock %} {% block yellow %}
 <nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #FFED75;">
     <div class="container" style="color: #B51714 !important;">
         <ul class="nav justify-content-start">
@@ -22,11 +19,11 @@
 {% endblock %} {% block complaint_details %}
 <div class="container box">
     <a class="link btn btn-success" href="complaint_list">GO TO DASHBOARD</a>
-    <a class="link btn btn-success" href="/crimefiles/createcomplaintnew">REGISTER COMPLAINT</a>
+    <a class="link btn btn-success" href="http://127.0.0.1:8000/chat">REGISTER COMPLAINT</a>
 </div>
 
 <div class="container">
-    <div style="text-align: center;background: #f7f7f9; width:700px; padding-top:30px;padding-bottom:20px;border-radius:50px;">
+    <div style="text-align: center; margin-top:0px;margin-left:200px;background:#f7f7f9; width:700px; padding-top:30px;padding-bottom:20px;border-radius:50px;">
         <h3>CRIMES AGAINST WOMEN</h3>
         <p><a href="analytics/overyears"> Click here for Analysis over the years</a></p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">With respect to every State</button>

@@ -1,10 +1,20 @@
 from django import forms
 from .models import Complaint,CopStatus,CaseStatus,CaseClose,freport
 
+class c_form(forms.ModelForm):
+	class Meta:
+		model = Complaint
+		fields = [
+"c_evidence1",
+"c_evidence2",
+"c_evidence3",
+"c_video"
+		]
+
 class FreportForm(forms.ModelForm):
 	class Meta:
 		model=freport
-		fields=[ 
+		fields=[
 	"facilitatorviews",
 	# "facilitator_statement",
 	"f_evidence1",
@@ -39,48 +49,3 @@ class CaseCloseForm(forms.ModelForm):
 		"verdict",
 		"description"
 		]
-
-
-# class ComplaintForm(forms.ModelForm):
-# 	class Meta:
-# 		model=Complaint
-# 		fields = [
-# 		"nameofcomplainant",
-# 		# "residenceofcomplainant",
-# 		# "briefofoffence",
-# 		# "nameofcriminal",
-# 		# "residenceofcriminal",
-# 		# "content",
-# 		# "policestation",
-# 		# "location",
-# 		]
-
-# class FirForm(forms.ModelForm):
-# 	class Meta:
-# 		model=Fir
-# 		fields=[
-# 		"signedby",
-# 		"content"
-# 		]
-
-# class DeclinepoliceForm(forms.ModelForm):
-# 	class Meta:
-# 		model=DeclineReason
-# 		fields=[
-# 			"decline_reason_police"
-# 		]
-
-# class DeclineshoForm(forms.ModelForm):
-# 	class Meta:
-# 		model=DeclineReason
-# 		fields=[
-# 			"decline_reason_sho"
-# 		]
-
-# class DeclinespForm(forms.ModelForm):
-# 	class Meta:
-# 		model=DeclineReason
-# 		fields=[
-# 			"decline_reason_sp"
-# 		]
-
